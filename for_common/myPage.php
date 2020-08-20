@@ -1,6 +1,6 @@
 <?php
 include_once('./_common.php');
-add_javascript('<script src="'.G5_THEME_URL.'/extend/clipboard.min.js"></script>',1);
+add_javascript('<script src="'.G5_THEME_URL.'/extend/clipboard.min.js"></script>', 1);
 
 include_once('../_head.php');
 ?>
@@ -24,11 +24,11 @@ include_once('../_head.php');
                     <h4><?=lng('휴대폰번호')?></h4>
                     <div><?=$member[mb_nation]?'+'.$member[mb_nation]:''?> <?=only_number($member[mb_hp])?></div>
                 </li>
-                <!--li>
+                <li>
                     <h4><?=lng('계좌번호')?></h4>
                     <div class='mb_bank'><?=$member[mb_bank]?$member[mb_bank]:'-'?> <?=$member[mb_bank_num]?$member[mb_bank_num]:'-'?> <?=$member[mb_bank_user]?$member[mb_bank_user]:'-'?></div>
                     <button type="submit" class="smallBtn changeAcc"><?=lng('계좌정보 등록')?></button> 
-                </li-->
+                </li>
                 <li>
                     <h4>USDT</h4>
                     <div class='mb_wallet_addr_u' style='word-break:break-all;word-wrap:break-word;' ><?=$member[mb_wallet_addr_u]?$member[mb_wallet_addr_u]:'-'?></div>
@@ -44,10 +44,10 @@ include_once('../_head.php');
                 </li>
             </ul>
         </div>
-		  <?
-		 //매도액
-		$stemp=sql_fetch("select sum(if(ct_validdate <= date(now()),ct_sell_price,0)) ct_sell_price,sum(if(ct_validdate > date(now()),ct_buy_price,0)) ct_buy_price  from {$g5['cn_item_cart']} where is_soled != '1' and mb_id='$member[mb_id]'");
-		?>
+		  <?php
+         //매도액
+        $stemp=sql_fetch("select sum(if(ct_validdate <= date(now()),ct_sell_price,0)) ct_sell_price,sum(if(ct_validdate > date(now()),ct_buy_price,0)) ct_buy_price  from {$g5['cn_item_cart']} where is_soled != '1' and mb_id='$member[mb_id]'");
+        ?>
 		
         <div class="sec setting">
 		<div class="longBtn Btn w_btn settingBtn"><a><span><?=lng('설정금액')?> : <is class="mb_trade_amtlmt">$<?=number_format2($member[mb_trade_amtlmt])?></is></span></a></div>
@@ -59,20 +59,24 @@ include_once('../_head.php');
             </div>
             <div class="longBtn Btn payPopBtn"><a><span><?=lng('결제방법')?> : 
 			<is class="mb_trade_paytype">					
-			<? if($member[mb_trade_paytype]=='cash') echo lng('현금');
-			else if($member[mb_trade_paytype]=='both') echo lng('현금 또는 테더');
-			else if($member[mb_trade_paytype]=='usdt') echo lng('테더');
-			?>
+			<?php if ($member[mb_trade_paytype]=='cash') {
+            echo lng('현금');
+        } elseif ($member[mb_trade_paytype]=='both') {
+                echo lng('현금 또는 테더');
+            } elseif ($member[mb_trade_paytype]=='usdt') {
+                echo lng('테더');
+            }
+            ?>
 			</is></span></a></div>
         </div>
 		
-		 <?
-			//서브 계정 없으면 추가
-			$subadd=set_basic_account($member);
-			
-			//서브 계정
-			$accresult=sql_query("select * from  {$g5['cn_sub_account']} where mb_id='$member[mb_id]'  order by ac_id asc",1);
-			?> 
+		 <?php
+            //서브 계정 없으면 추가
+            $subadd=set_basic_account($member);
+            
+            //서브 계정
+            $accresult=sql_query("select * from  {$g5['cn_sub_account']} where mb_id='$member[mb_id]'  order by ac_id asc", 1);
+            ?> 
         <div class="sec setting pb0">
             <div class="position">
                 <div class="longBtn Btn w_btn dollar"><a><span>$<?=number_format2($rpoint['i']['_enable'])?> </span></a></div>
@@ -99,8 +103,8 @@ include_once('../_head.php');
 			<input type='hidden' name='ac_id' value='' > 
             <ul class="crown activeId">
                
-				<?
-			while($ac=sql_fetch_array($accresult)){?>			
+				<?php
+            while ($ac=sql_fetch_array($accresult)) {?>			
 				
 				<li class="<?=!$ac[ac_active]?'IdDisable':''?>"   data-id="<?=$ac[ac_id]?>"   >
                     <div class="IdSelect">
@@ -114,14 +118,14 @@ include_once('../_head.php');
                         <div class="dollar">
 						<span>$<is class='gold-enable-<?=$ac[ac_id]!=$ac[mb_id]?$ac[ac_no]:$ac[ac_id]?>' ><?=number_format2($ac['ac_point_i'])?></is></span>
                         </div>
-						 <?
-				if($ac[ac_id]!=$ac[mb_id]){?>
+						 <?php
+                if ($ac[ac_id]!=$ac[mb_id]) {?>
                         <div class="Btn go sendPopBtn"  data-id="<?=$ac[ac_id]?>" data-no="<?=$ac[ac_no]?>" ><a class='btn-send-gold'  data-id="<?=$ac[ac_id]?>" data-no="<?=$ac[ac_no]?>"><span><?=lng('전송')?></span></a></div>
-				<? }?>		
+				<?php }?>		
                     </div>
                 </li> 
 				
-			  <? }?>
+			  <?php }?>
 			  	
            
             </ul> 
@@ -734,6 +738,6 @@ include_once('../_head.php');
 
   </script>
 
-<?	
+<?php
 include_once('../_tail.php');
 ?>

@@ -1,6 +1,6 @@
 <?php
 include_once('./_common.php');
-add_javascript('<script src="'.G5_THEME_URL.'/extend/clipboard.min.js"></script>',1);
+add_javascript('<script src="'.G5_THEME_URL.'/extend/clipboard.min.js"></script>', 1);
 
 include_once('../_head.php');
 ?>
@@ -23,9 +23,9 @@ include_once('../_head.php');
         </div>
         <div class="bar"></div>
     </div>
-	<?
-			$is_auto=sql_fetch(" select count(*) cnt  from  {$g5['cn_sub_account']} where mb_id='{$member['mb_id']}' and (ac_auto_a='1' or ac_auto_b='1' or ac_auto_c='1' or ac_auto_d='1' or ac_auto_e='1' or ac_auto_g='1' or ac_auto_g='1' or ac_auto_h='1' ) ");
-			?>
+	<?php
+            $is_auto=sql_fetch(" select count(*) cnt  from  {$g5['cn_sub_account']} where mb_id='{$member['mb_id']}' and (ac_auto_a='1' or ac_auto_b='1' or ac_auto_c='1' or ac_auto_d='1' or ac_auto_e='1' or ac_auto_g='1' or ac_auto_g='1' or ac_auto_h='1' ) ");
+            ?>
 			
 			
     <div class="deal">
@@ -39,10 +39,10 @@ include_once('../_head.php');
            </span>
 		   </form>
             <ul class="crown">
-				  <?
-				//서브 계정
-				$accresult=sql_query("select * from  {$g5['cn_sub_account']} where mb_id='$member[mb_id]' order by ac_id asc");
-				while($ac=sql_fetch_array($accresult)){?>
+				  <?php
+                //서브 계정
+                $accresult=sql_query("select * from  {$g5['cn_sub_account']} where mb_id='$member[mb_id]' order by ac_id asc");
+                while ($ac=sql_fetch_array($accresult)) {?>
 
 			
                	 <li>
@@ -57,25 +57,25 @@ include_once('../_head.php');
                     </span>
                     <div class="secList secList04">
                         <ul class="bitSelect">
-							<?
-							foreach($g5['cn_item'] as $k=>$v){?>
+							<?php
+                            foreach ($g5['cn_item'] as $k=>$v) {?>
                            <li>                           
                                <span class="check sel-check">                               
                                    <input type="checkbox" name="ac_auto_<?=$k?>" id="selc-<?=$k?>-<?=$ac[ac_no]?>"  class='toggle-<?=$ac[ac_no]?>' value='1' <?=$ac['ac_auto_'.$k]?'checked':''?> >
                                    <label for="selc-<?=$k?>-<?=$ac[ac_no]?>">
                                        <img src="<?=G5_THEME_URL?>/images/item/<?=$v[img]?>">
-                                       <span class="selc-<?=$k?>-<?=$ac[ac_no]?>">선택</span>
+                                       <span class="selc-<?=$k?>-<?=$ac[ac_no]?>"><?=lng('선택')?></span>
                                    </label>
                                </span>
                            </li>
-						   <? } ?>
+						   <?php } ?>
 						   
                            
                        </ul> 
                     </div>
 					</form>
                 </li>
-				<? }?>
+				<?php }?>
 				
             </ul>
         </div>        
@@ -196,6 +196,6 @@ include_once('../_head.php');
 
 	
   </script>
-<?	
+<?php
 include_once('../_tail.php');
 ?>

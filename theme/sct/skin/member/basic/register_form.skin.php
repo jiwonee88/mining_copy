@@ -1,5 +1,7 @@
 <?php
-if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
+if (!defined('_GNUBOARD_')) {
+    exit;
+} // 개별 페이지 접근 불가
 
 add_javascript('<script src="'.G5_JS_URL.'/jquery.register_form.js"></script>');
 
@@ -39,12 +41,12 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.register_form.js"></script>');
         </div>
 		
 		<div class="sec">
-		 <h6>회원가입동의</h63>
+		 <h6><?=lng('회원가입동의')?></h63>
 		  <div class='border w-100 mx-auto text-left p-1' style='font-size:0.925rem;'>
-		  마이닝 p2p는 회원간의 약속거래이므로 본 플랫폼은 회원간의 거래에 대하여 책임을 지지 않으며 본인은 회사에게 책임을 묻지 않을것입니다.	  
+		  <?=lng('마이닝 p2p는 회원간의 약속거래이므로 본 플랫폼은 회원간의 거래에 대하여 책임을 지지 않으며 본인은 회사에게 책임을 묻지 않을것입니다.')?>		  	  
 		  </div >
 		  <label class='w-100 text-center mt-1'>
-			<input type="checkbox"   name="agree"  id="agree" value='y' class='d-inline mt-0' style='width:1rem;height:1rem;'>	동의합니다.
+			<input type="checkbox"   name="agree"  id="agree" value='y' class='d-inline mt-0' style='width:1rem;height:1rem;'>	<?=lng('동의합니다.')?>
 		</label>
 		</div>
 	

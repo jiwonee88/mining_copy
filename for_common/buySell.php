@@ -111,39 +111,39 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
 			<input type='hidden' name='tr_code' value='<?=$row[tr_code]?>' >	
 			<input type='hidden' name='w' value='txin' >	
 			
-                    <h3>매수</h3>
+                    <h3><?=lng('매수')?></h3>
                     <div><img src="<?=G5_THEME_URL?>/item/<?=$g5[cn_item][$row[cn_item]][img]?>" alt="" /></div>
                     <ul class="w-100">
                         <li>
-                            <p>주문번호 : <?=$row[tr_code]?></p>
-                            <p>구매자 : <?=$row[mb_id]?></p>
-                            <p>판매자 : <?=$row[bmb_id]?></p>
+                            <p><?=lng('주문번호')?> : <?=$row[tr_code]?></p>
+                            <p><?=lng('구매자')?> : <?=$row[mb_id]?></p>
+                            <p><?=lng('판매자')?> : <?=$row[bmb_id]?></p>
                         </li>
                         <li>
-                            <p>판매자 이름 : <?=$row[bmb_name]?></p>
-                            <p>판매자 연락처 : <?=$row[bmb_nation]?'+'.$row[bmb_nation]:$row[bmb_nation];?>
+                            <p><?=lng('판매자 이름')?> : <?=$row[bmb_name]?></p>
+                            <p><?=lng('판매자 연락처')?> : <?=$row[bmb_nation]?'+'.$row[bmb_nation]:$row[bmb_nation];?>
 <?=$row[bmb_hp]?></p>
                         </li>
                         <li>
-                            <p>가격 : <?=number_format2($row[tr_price]*$g5['cn_won_usd'])?>원</p>
+                            <p><?=lng('가격')?> : $<?=number_format2($row[tr_price])?></p>
                         </li>
                         <li>
-                            <p>수수료 : <?=number_format2($row[tr_fee])?></p>
+                            <p><?=lng('수수료')?> : <?=number_format2($row[tr_fee])?></p>
                         </li>
                         <li>
-                            <p>상태 : <?=$g5[tr_stat][$row[tr_stats]]?>
+                            <p><?=lng('상태')?> : <?=$g5[tr_stat][$row[tr_stats]]?>
 							
 							
 							<?
-if($row[tr_buyer_claim]=='1') echo "<p class='badge badge-danger'>구매자신고중</p>";
-if($row[tr_seller_claim]=='1') echo "<p class='badge badge-warning'>판매자신고중</p>";
+if($row[tr_buyer_claim]=='1') echo "<p class='badge badge-danger'>".lng('구매자신고중')."</p>";
+if($row[tr_seller_claim]=='1') echo "<p class='badge badge-warning'>".lng('판매자신고중')."</p>";
 ?>
 							</p>
                         </li>
                         <li>
-                            <p>주문일 : <?=$row[tr_rdate]?></p>
-                            <p>결제일 : <?=!preg_match("/^00/",$row[tr_paydate])?$row[tr_paydate]:'-'?></p>
-                            <p>확정일 : <?=!preg_match("/^00/",$row[tr_setdate])?$row[tr_setdate]:'-'?></p>
+                            <p><?=lng('주문일')?> : <?=$row[tr_rdate]?></p>
+                            <p><?=lng('결제일')?> : <?=!preg_match("/^00/",$row[tr_paydate])?$row[tr_paydate]:'-'?></p>
+                            <p><?=lng('확정일')?> : <?=!preg_match("/^00/",$row[tr_setdate])?$row[tr_setdate]:'-'?></p>
                         </li> 
 						
 						<!--li>

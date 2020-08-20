@@ -1,6 +1,8 @@
 <?php
-if (!defined('_GNUBOARD_')) exit;
-define('G5_MYSQL_HOST', 'localhost');
+if (!defined('_GNUBOARD_')) {
+    exit;
+}
+define('G5_MYSQL_HOST', 'localhost:3306');
 define('G5_MYSQL_USER', 'root');
 define('G5_MYSQL_PASSWORD', 'secret');
 define('G5_MYSQL_DB', 'mining');
@@ -39,4 +41,3 @@ $g5['faq_master_table'] = G5_TABLE_PREFIX.'faq_master'; // 자주하시는 질�
 $g5['new_win_table'] = G5_TABLE_PREFIX.'new_win'; // 새창 테이블
 $g5['menu_table'] = G5_TABLE_PREFIX.'menu'; // 메뉴관리 테이블
 $g5['social_profile_table'] = G5_TABLE_PREFIX.'member_social_profiles'; // 소셜 로그인 테이블
-?>

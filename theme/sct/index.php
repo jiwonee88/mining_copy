@@ -1,6 +1,8 @@
 <?php
 define('_INDEX_', true);
-if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
+if (!defined('_GNUBOARD_')) {
+    exit;
+} // 개별 페이지 접근 불가
 
 if (G5_IS_MOBILE) {
     include_once(G5_THEME_MOBILE_PATH.'/index.php');
@@ -11,33 +13,35 @@ add_javascript('<script src="'.G5_THEME_URL.'/js/main.js"></script>');
 include_once(G5_THEME_PATH.'/head.php');
 
 //회원 전체 포인트 정보
-if($member) $rpoint=get_mempoint($member['mb_id']);
+if ($member) {
+    $rpoint=get_mempoint($member['mb_id']);
+}
  
 //시세 정보
 $sise=get_sise();
 
 //메인계정의 포인트
-$mrpoint=get_mempoint($member['mb_id'],$member['mb_id']);
+$mrpoint=get_mempoint($member['mb_id'], $member['mb_id']);
 $isum=get_itemsum($member[mb_id]);
 
 // 회원, 방문객 카운트
 $sql = " select sum(IF(mb_id<>'',1,0)) as mb_cnt, count(*) as total_cnt from {$g5['login_table']}  where mb_id <> '{$config['cf_admin']}' ";
-$connect = sql_fetch($sql,1);
+$connect = sql_fetch($sql, 1);
 
 // 회원
 $sql = " select count(*) as total_cnt from {$g5['member_table']}  where mb_id <> '{$config['cf_admin']}' ";
-$totmem = sql_fetch($sql,1);
+$totmem = sql_fetch($sql, 1);
 ?>
 <?php
-if(defined('_INDEX_')) { // index에서만 실행
-	include G5_THEME_PATH.'/newwin.inc.php'; // 팝업레이어
+if (defined('_INDEX_')) { // index에서만 실행
+    include G5_THEME_PATH.'/newwin.inc.php'; // 팝업레이어
 }
 ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
   
 	<div class="wrap">	
 	 <div style='margin-top:-40px;font-weight:400;'>
-    <div class='float-left text-left'>Dday : <?=(strtotime("+99 days",strtotime('2020-08-15')) - strtotime(date("Y-m-d"))) /86400?> days left.</div>
+    <div class='float-left text-left'>Dday : <?=(strtotime("+99 days", strtotime('2020-08-15')) - strtotime(date("Y-m-d"))) /86400?> days left.</div>
 	<div class='float-right text-right'>Total Members :<?=$totmem[tot_cnt]+114?></div>
 	
    </div>
@@ -51,7 +55,7 @@ if(defined('_INDEX_')) { // index에서만 실행
         </div>
         <div class="secList secList03 mainList">
             <ul>
-                <li class="list02" onclick="document.location.href='/for_common/sendGold.php'" ><a href="/for_common/sendGold.php">Gold Transfer</a></li>
+                <li class="list02" onclick="document.location.href='/for_common/sendGold.php'" ><a href="/for_common/sendGold.php"><?=lng('Gold Transfer')?></a></li>
                 <li class="list03"  onclick="document.location.href='/for_common/genology.php'" ><a href="/for_common/genology.php">Genealogy</a></li>
             </ul>    
         </div>
@@ -62,10 +66,10 @@ if(defined('_INDEX_')) { // index에서만 실행
                 </li>
 
 		 <div class="sec point text-center">
-		 Current User : <?=$connect[total_cnt]+15?>
+		 <?=lng('Current User')?> : <?=$connect[total_cnt]+15?>
 		 </div>
         <div class="sec point">
-            <div class="longBtn Btn w_btn"><a  href='/for_common/buyGold.php'><span><?=number_format2($rpoint['i']['_enable'])?> GOLD(Buy Gold)</span></a></div>
+            <div class="longBtn Btn w_btn"><a  href='/for_common/buyGold.php'><span><?=number_format2($rpoint['i']['_enable'])?> <?=lng('GOLD(Buy Gold)')?></span></a></div>
         </div>
         <div class="sec secList">
             <h3><?=lng('구매')?></h3>
@@ -91,28 +95,28 @@ if(defined('_INDEX_')) { // index에서만 실행
                 <li class="f_black" onclick="document.location.href='/for_common/myItem.php'"><span>$<?=number_format2($isum[tot][price])?></span><?=lng('보유금액')?></li>
             </ul>    
         </div>
-		  <?
-		 //매도액
-		$stemp=sql_fetch("select sum(if(ct_validdate <= date(now()),ct_sell_price,0)) ct_sell_price,sum(if(ct_validdate > date(now()),ct_buy_price,0)) ct_buy_price  from {$g5['cn_item_cart']} where is_soled != '1' and mb_id='$member[mb_id]'");
-		?>
+		  <?php
+         //매도액
+        $stemp=sql_fetch("select sum(if(ct_validdate <= date(now()),ct_sell_price,0)) ct_sell_price,sum(if(ct_validdate > date(now()),ct_buy_price,0)) ct_buy_price  from {$g5['cn_item_cart']} where is_soled != '1' and mb_id='$member[mb_id]'");
+        ?>
 		
         <div class="longBtn Btn w_btn"><a><?=lng('오늘 매도액')?> : $<?=number_format2($stemp[ct_sell_price])?></a></div>
-        <div class="longBtn Btn"><a href="/for_common/automaching.php">AUTOMACHING</a></div>
+        <div class="longBtn Btn"><a href="/for_common/automaching.php"><?=lng('AUTOMACHING')?></a></div>
     </div>
 	
     <div class="deal">
         <div class="wrap">
             <ul class="crown"  onclick="document.location.href='/for_common/myItem.php'">
 				
-				<?
-			$cn_item=array();
-			$re=sql_query("select *,count(*) cnt from {$g5[cn_item_cart]} where mb_id='$member[mb_id]' and is_soled!='1' group by cn_item",1);
-			while($d=sql_fetch_array($re)){
-			$cn_item[$d[cn_item]]+=$d[cnt];				
-			}
-				
-				
-			foreach($g5['cn_item'] as $k=>$v){?>
+				<?php
+            $cn_item=array();
+            $re=sql_query("select *,count(*) cnt from {$g5[cn_item_cart]} where mb_id='$member[mb_id]' and is_soled!='1' group by cn_item", 1);
+            while ($d=sql_fetch_array($re)) {
+                $cn_item[$d[cn_item]]+=$d[cnt];
+            }
+                
+                
+            foreach ($g5['cn_item'] as $k=>$v) {?>
 			
                 <li>
                     <h3><?=lng($v[name_kr])?></h3>
@@ -129,7 +133,7 @@ if(defined('_INDEX_')) { // index에서만 실행
                     <div class="longBtn Btn g_Btn"><a href="#"> <?=number_format2($v[price])?> ~ <?=number_format2($v[mxprice])?></a></div>
                 </li>
 				
-			<? }?>	
+			<?php }?>	
              
             </ul>
         </div>        
