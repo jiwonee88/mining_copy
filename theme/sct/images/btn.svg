@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="273" height="42.527" viewBox="0 0 273 42.527">
+    <defs>
+        <linearGradient id="prefix__linear-gradient" x2="1" y1=".5" y2=".5" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#f9df7b"/>
+            <stop offset=".204" stop-color="#b57e10"/>
+            <stop offset=".264" stop-color="#b78113"/>
+            <stop offset=".323" stop-color="#be8c1f"/>
+            <stop offset=".38" stop-color="#cb9d32"/>
+            <stop offset=".437" stop-color="#dcb64e"/>
+            <stop offset=".493" stop-color="#f2d570"/>
+            <stop offset=".508" stop-color="#f9df7b"/>
+            <stop offset=".519" stop-color="#fff3a6"/>
+            <stop offset=".593" stop-color="#f9df7b"/>
+            <stop offset=".843" stop-color="#b57e10"/>
+            <stop offset=".949" stop-color="#e5c25b"/>
+            <stop offset="1" stop-color="#f9df7b"/>
+        </linearGradient>
+        <linearGradient id="prefix__linear-gradient-2" x1=".5" x2=".5" y1="0" y2="1" xlink:href="#prefix__linear-gradient"/>
+    </defs>
+    <g id="prefix__Group_1678" stroke="#daa825" data-name="Group 1678" transform="translate(-350.047 -217.764)">
+        <rect id="prefix__Rectangle_408" width="272" height="41.526" fill="url(#prefix__linear-gradient)" data-name="Rectangle 408" rx="5.364" transform="translate(350.547 218.264)"/>
+        <path id="prefix__Path_2050" fill="url(#prefix__linear-gradient-2)" d="M611.94 219.264c4.757 0 8.629 1.958 8.629 4.364v30.8c0 2.406-3.872 4.364-8.629 4.364H361.154c-4.758 0-8.629-1.958-8.629-4.364v-30.8c0-2.406 3.872-4.364 8.629-4.364H611.94m0-1H361.154c-5.859 0-10.607 2.4-10.607 5.364v30.8c0 2.962 4.748 5.364 10.607 5.364H611.94c5.859 0 10.607-2.4 10.607-5.364v-30.8c0-2.962-4.748-5.364-10.607-5.364z" data-name="Path 2050"/>
+    </g>
+</svg>

@@ -1,0 +1,56 @@
+ul.tabs {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-align: center;
+  background: #000 url(../images/subBorder02.png);
+  background-size: 100% 100%;
+  padding: 60px 0;
+}
+ul.tabs li {
+  background: none;
+  color: #fff;
+  display: inline-block;
+  padding: 12px 30px;
+  cursor: pointer;
+  margin: 0 10px;
+  font-size: 30px;
+  background: url(../images/staticBtn2.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+ul.tabs li.current {
+  background: url(../images/staticBtn.dark.png) no-repeat;
+  background-size: 100% 100%;
+  color: #fff;
+}
+
+.tab-content {
+  width: 95%;
+  border-radius: 30px;
+  margin: 0 auto;
+  display: none;
+  background: #ededed;
+  padding: 15px;
+  background: #000;
+  border: #fff 1px solid;
+  margin-top: 50px;
+  min-height: 400px;
+}
+
+.tab-content.current {
+  display: inherit;
+}
+
+.tab-content table {
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+}
+.tab-content table th {
+  padding: 10px 0;
+  font-size: 35px;
+}
+.tab-content table td {
+  padding: 5px 0;
+}

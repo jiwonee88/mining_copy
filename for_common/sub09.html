@@ -1,0 +1,579 @@
+<?php
+include_once('./_common.php');
+
+add_stylesheet('<link rel="stylesheet" href="'.G5_THEME_URL.'/css/sub04.css">',1);
+add_javascript('<script src="'.G5_THEME_URL.'/extend/clipboard.min.js"></script>',1);
+
+include_once('../_head.php');
+?>  <style>
+    .currentState .leftArea {
+      padding: 20px 40px;
+    }
+
+    .currentState .leftArea p {
+      margin-bottom: 15px;
+    }
+
+    .currentState .bottomArea ul {
+      text-align: center;
+    }
+
+    .currentState .bottomArea li {
+
+      display: inline-block;
+    }
+
+    .currentState .bottomArea button {}
+
+    #s01 .s01_wraper .s01_02 h2 {
+      font-size: 45px;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .currentState .leftArea .thumnail {
+      background: url(<?=G5_THEME_URL?>/images/gold.png);
+      background-size: 100% 100%;
+    }
+
+    .s01_02 .gold button,
+    .s01_02 .point button {
+      display: inline-block;	  
+      background: url(<?=G5_THEME_URL?>/images/staticBtn.dark.png) no-repeat;
+      font-weight: 600;
+      background-size: 100% 100%;
+      padding: 10px 40px;
+      font-size: 30px;
+      color: #fff;
+      margin: 0 5px;
+      vertical-align: middle;
+      margin-top: 14px;
+      margin-left: 20px;
+    }
+
+    .s01_02 .gold p,
+    .s01_02 .point p {
+      text-align: left;
+      padding-left: 12%;
+    }
+
+    .s01_02 {}
+
+    .sendInfo.on {
+      display: block;
+    }
+
+    .sendInfo {
+      position: absolute;
+      z-index: 1000;
+      width: 100%;
+      top: 30%;
+      left: 0;
+      padding: 30px 0;
+      background: #000 url(<?=G5_THEME_URL?>/images/s08_subBorder02.png) no-repeat;
+      background-size: 100% 100%;
+      padding: 60px 0;
+      display: none;
+    }
+
+    .sendInfo h3 {
+      font-size: 50px;
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+
+    .sendInfo .ul {
+      width: 500px;
+      margin: 50px auto;
+      font-size: 40px;
+
+    }
+
+    .sendInfo .ul li {
+      overflow: hidden;
+    }
+
+    .sendInfo .ul li p {
+      float: left;
+    }
+
+    .sendInfo .ul li span {
+      float: right;
+    }
+
+    .sendInfo p {
+      text-align: center;
+      font-size: 40px;
+    }
+
+    .sendInfo h4 {
+      text-align: center;
+      font-size: 40px;
+      color: #ffd000;
+    }
+
+
+    .sendInfo .popupInfo {}
+
+    .sendInfo .popupInfo h3 {}
+
+    .sendInfo .popupInfo input {
+      width: 80%;
+      margin: 0 auto;
+      display: block;
+      font-size: 40px;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    .sendInfo .btns {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .sendInfo .btns button {
+      display: inline-block;
+      background: url(<?=G5_THEME_URL?>/images/staticBtn.png) no-repeat;
+      font-weight: 600;
+      background-size: 100% 100%;
+      padding: 10px 40px;
+      font-size: 30px;
+      color: #fff;
+      margin: 0 5px;
+      margin-bottom: 60px;
+    }
+
+    .sendInfo .btns button:nth-child(2) {
+      background: url(<?=G5_THEME_URL?>/images/staticBtn2.png) no-repeat;
+      background-size: 100% 100%;
+    }
+  </style>
+  
+    <section id="s01">
+      <div class="s01_wraper">
+	  
+	  
+        <div class="s01_01">
+          <div class="myPage">
+            <div class="profile">
+              <img src="<?=G5_THEME_URL?>/images/p1.png" alt="profile" />
+            </div>
+           <div style="width:100%;padding-left:350px;">
+            <div class="info">
+              <p onclick="location.href='/for_common/sub08.html'"><?=$member[mb_id]?><span><?=lng('님')?></span></p>
+              <button onclick="location.href='/for_common/sub08.html'" class='angle-btn'><i class="fas fa-angle-double-right"></i></button>
+            </div>
+			</div>
+          </div>
+        </div>
+
+        <div class="s01_02">
+          <h2><?=lng('내 보유 포인트')?></h2>
+		  
+		  <div class="gold gas">
+            <p><?=number_format2($rpoint['b']['_enable'])?> <span>GAS</span>
+              <button class='float-right' ><?=lng('구매')?></button>
+            </p>
+          </div>		  
+		  
+          <div class="gold golds">
+            <p><?=number_format2($rpoint['i']['_enable'])?> <span>GOLD</span>
+              <button class='float-right' ><?=lng('구매')?></button>
+            </p>
+
+          </div>
+          <div class="point" onclick="location.href='/for_common/sub05.html'">
+            <p><?=number_format2($rpoint['b']['_enable'])?> <span>Point</span>
+              <button class='angle-btn'><i class="fas fa-angle-double-right"></i></button></p>
+
+          </div>
+		  
+		  
+          <div class="sendInfo buyPopup goldform">
+			<form name='buyform' id='buyform' onsubmit='buyform_submit(this);' >
+			<input type='hidden' name='w' value='' >	
+			<input type='hidden' name='mb_id' value='<?=$member[mb_id]?>' >
+			<input type='hidden' name='tr_token' value='u' >
+			<input type='hidden' name='tr_set_token' value='i' >
+				
+				
+            <h3 style="margin-top:70px;"><?=lng('주의 사항')?></h3>
+            <p><?=lng('GOLD 구매시 선택 상품에 따라 할인 적용')?></p>
+            <div class="popupInfo">
+				<h3><?=lng('계정')?></h3>
+				
+			 <select name='smb_id' class='common-select w-80' >
+			 <option value=''  ><?=$member[mb_id]?></option>
+			 <?
+			 //서브 계정
+			 $accresult=sql_query("select * from  {$g5['cn_sub_account']} where mb_id='$member[mb_id]' and ac_id != '{$member['mb_id']}' order by ac_id asc");
+			 while($ac=sql_fetch_array($accresult)){?>
+			 <option value='<?=$ac[ac_id]?>'  ><?=$ac[ac_id]?></option>
+			 <? }?>
+			 </select>
+                   
+					
+					
+              <h3>GOLD</h3>
+             <select name='item' class='common-select w-80' >
+					 <?
+					 foreach($g5['cn_golditem'] as $k=>$v){?>
+					 <option value='<?=$k?>' data-price='<?=$v[price]?>' data-amt='<?=$v[amt]?>' ><?=lng($v[name_kr])?></option>
+					 <? }?>
+					 </select>
+              <h3><?=lng('수량')?></h3>
+               <select name='qty' class='common-select w-80' >
+					<?
+					for($i=1;$i <=10;$i++){?>
+					 <option value='<?=$i?>'><?=$i?></option>
+					 <? }?>
+					 </select>
+            </div>
+            <div class="ul">
+              <ul>
+                <li>
+                  <p><?=lng('최종지급수량')?> :</p>
+                  <span><is id='gold_amt_str'>0</is><?=lng('개')?></span>
+                </li>
+                <li>
+                  <p><?=lng('최종결제금액')?> :</p>
+                  <span>$ <is id='gold_sum_str'>0</is></span>
+                </li>
+              </ul>
+            </div>
+            <div class="btns">
+              <button type='submit' class='' ><?=lng('저장')?></button>
+              <button type='button' class="exit"><?=lng('닫기')?></button>
+            </div>
+			</form>
+          </div>
+		  
+		  
+		  
+		  <div class="sendInfo buyPopup gasform">
+			<form name='gasform' id='gasform' onsubmit='gasform_submit(this);' >
+			<input type='hidden' name='w' value='' >	
+			<input type='hidden' name='mb_id' value='<?=$member[mb_id]?>' >
+			<input type='hidden' name='smb_id' value='<?=$member[mb_id]?>' >
+			<input type='hidden' name='tr_token' value='u' >
+			<input type='hidden' name='tr_set_token' value='b' >
+				
+				
+            <h3 style="margin-top:70px;"><?=lng('주의 사항')?></h3>
+            <p><?=lng('GAS 구매시 선택 상품에 따라 할인 적용')?></p>
+			
+            <div class="popupInfo">
+			<? /*
+			 <h3><?=lng('계정')?></h3>
+				
+			 <select name='smb_id' class='common-select w-80' >
+			 <option value=''  ><?=$member[mb_id]?></option>
+			 <?
+			 //서브 계정
+			 $accresult=sql_query("select * from  {$g5['cn_sub_account']} where mb_id='$member[mb_id]' and ac_id != '{$member['mb_id']}' order by ac_id asc");
+			 while($ac=sql_fetch_array($accresult)){?>
+			 <option value='<?=$ac[ac_id]?>'  ><?=$ac[ac_id]?></option>
+			 <? }?>
+			 </select>
+               */?>    
+					
+					
+              <h3>GAS</h3>
+             <select name='item' class='common-select w-80' >
+			 <?
+			 foreach($g5['cn_gasitem'] as $k=>$v){?>
+			 <option value='<?=$k?>' data-price='<?=$v[price]?>' data-amt='<?=$v[amt]?>' ><?=lng($v[name_kr])?></option>
+			 <? }?>
+					 </select>
+              <h3><?=lng('수량')?></h3>
+               <select name='qty' class='common-select w-80' >
+					<?
+					for($i=1;$i <=10;$i++){?>
+					 <option value='<?=$i?>'><?=$i?></option>
+					 <? }?>
+					 </select>
+            </div>
+            <div class="ul">
+              <ul>
+                <li>
+                  <p><?=lng('최종지급수량')?> :</p>
+                  <span><is id='gas_amt_str'>0</is><?=lng('개')?></span>
+                </li>
+                <li>
+                  <p><?=lng('최종결제금액')?> :</p>
+                  <span>$ <is id='gas_sum_str'>0</is></span>
+                </li>
+              </ul>
+            </div>
+            <div class="btns">
+              <button type='submit' class='' ><?=lng('저장')?></button>
+              <button type='button' class="exit"><?=lng('닫기')?></button>
+            </div>
+			</form>
+          </div>
+		  
+		  
+		  
+		  
+		  
+		  
+        </div>
+		
+		<?
+			//신청내역 - 입금 준비중인 것만 표
+			$result=sql_query("select * from  {$g5['cn_purchase_table']} where mb_id='$member[mb_id]' and in_stats='1' order by in_no desc");
+			while($data=sql_fetch_array($result)){?>
+		
+        <div class="currentState">
+		<form name='depositform<?=$data[in_no]?>' id='depositform<?=$data[in_no]?>' onsubmit='depositform_submit(this);' >
+			<input type='hidden' name='w' value='u' >	
+			<input type='hidden' name='in_no' value='<?=$data[in_no]?>' >
+				
+          <div class="leftArea">
+            <p><?=lng('매수')?></p>
+            <div class="thumnail"></div>
+          </div>
+          <ul class="rightArea">
+            <li>
+              <p><?=lng('주문상품')?></p>
+              <p><?=$data[in_item]?> x <?=$data[in_item_qty]?></p>
+            </li>
+            <li>
+              <p><?=lng('수량')?></p>
+              <p><?=number_format2($data[in_set_amt])?> <?=$g5[cn_cointype][$data[in_set_token]]?></p>
+            </li>
+            <li>
+              <p><?=lng('가격')?></p>
+              <p>$ <?=number_format2($data[in_rsv_amt])?> <?=$g5[cn_cointype][$data[in_token]]?></p>
+            </li>
+<li>
+              <p><?=lng('원화가격')?></p>
+              <p>KRW <?=number_format2($data[in_rsv_amt])*1200?></p>
+            </li>
+
+            <li>
+              <p><?=lng('상태')?></p>
+              <p><?=$g5[purchase_stat][$data[in_stats]]?></p>
+            </li>
+            <li>
+              <p><?=lng('지갑정보')?></p>              
+                        
+              <p class="d-block btn-clipboard w-90" data-clipboard-text="<?=$data[in_wallet_addr]?>" >
+			  <span class="text-narrow025" style='word-break:break-all;' ><?=$data['in_wallet_addr']?$data['in_wallet_addr']:lng('미지정')?></span>
+                <img style="vertical-align: middle; width:40px;" src="<?=G5_THEME_URL?>/images/copy.png" alt="">
+              </p>
+            </li>
+          </ul>
+          <div class="sellerInfo a01 d-none">
+            <ul>
+              <li>
+			  	<p><?=lng('은행명')?></p>
+                <p><?=$cset[bank_name]?></p>
+              </li>
+              <li>
+                <p><?=lng('계좌번호')?></p>
+                <p><?=$cset[bank_num]?></p>
+              </li>
+              <li>
+                <p><?=lng('예금주')?></p>
+                <p><?=$cset[bank_user]?></p>
+              </li>              
+            </ul>
+			
+			<input type="text" name='in_txn_id' value='<?=$data[in_txn_id]?>' placeholder="<?=lng('계좌 입금자명 or Txid 붙여넣기')?>">
+              <p class="txn">* <?=lng('계좌 입금자명 또는 Transaction Hash (테더 전송 거래 번호)')?></p>
+<p class="txn">* <?=lng('반드시 입력해야합니다. 미 입력시 승인 불가능')?></p>
+          </div>
+          <div class="bottomArea">
+            <ul>
+              <li>
+                <button type='button' class="a01"><?=lng('입금 정보')?></button>
+              </li>
+              <li>
+                <button type='submit' style='submit' ><?=lng('결제 확인')?></button>
+              </li>
+            </ul>
+          </div>
+		  
+		  </form>
+        </div>
+		
+		<?}
+		?>
+		</div>
+    </section>
+    <div class="mask"></div>
+
+
+
+  <script>
+    $(".currentState .bottomArea button.a01").click(function () {
+      $(this).closest('form').find('.sellerInfo ').toggleClass('d-none');
+    });
+
+    $("#s01 .s01_wraper .s01_02 .gas button").click(function () {
+      $(".gasform").addClass("on");
+      $(".mask").addClass("on");
+    });
+	  
+	  $("#s01 .s01_wraper .s01_02 .golds button").click(function () {
+      $(".goldform").addClass("on");
+      $(".mask").addClass("on");
+    });
+	
+    $(".sendInfo .btns button:nth-child(2)").click(function () {
+      $(".sendInfo").removeClass("on");
+      $(".mask").removeClass("on");
+    });
+	
+	
+$(document).ready(function () {
+	
+	
+	sum()
+	$('select[name=item],select[name=qty]','#buyform').change(function () {
+		sum();
+	});
+	
+	sum2()
+	$('select[name=item],select[name=qty]','#gasform').change(function () {
+		sum2();
+	});
+	
+	var clipboard = new ClipboardJS('.btn-clipboard');
+	clipboard.on('success', function(e) {
+		Swal.fire({text:'<?=lng('복사완료')?>',timer:1000});
+
+		var selection = window.getSelection();
+		selection.removeAllRanges();
+	});
+	
+	clipboard.on('error', function(e) {
+		Swal.fire({text:'<?=lng('복사실패')?>',timer:1000});
+	});
+		
+
+});
+
+
+	
+	
+function sum(){
+	var price=$('select[name=item] option:selected','#buyform').attr('data-price');
+	var amt=$('select[name=item] option:selected','#buyform').attr('data-amt');
+	var qty=$('select[name=qty] option:selected','#buyform').val();
+	
+	var sum=parseInt(price) * parseInt(qty);
+	var tamt=parseInt(amt) * parseInt(qty);
+	
+	$('#gold_sum_str').html(inputNumberFormat(sum));
+	$('#gold_amt_str').html(inputNumberFormat(tamt));
+}
+
+	
+function sum2(){
+	var price=$('select[name=item] option:selected','#gasform').attr('data-price');
+	var amt=$('select[name=item] option:selected','#gasform').attr('data-amt');
+	var qty=$('select[name=qty] option:selected','#gasform').val();
+	
+	var sum=parseInt(price) * parseInt(qty);
+	var tamt=parseInt(amt) * parseInt(qty);
+	
+	$('#gas_sum_str').html(inputNumberFormat(sum));
+	$('#gas_amt_str').html(inputNumberFormat(tamt));
+}
+	
+
+
+//  골드 구매 신
+function buyform_submit(f)
+{
+	event.preventDefault();
+	var formData = $(f).serialize();		
+
+	$.ajax({
+		type: "POST",
+		url: "./coin_purchase_update.php",
+		data:formData,
+		cache: false,
+		async: false,
+		dataType:"json",
+		success: function(data) {
+			console.log(data);
+			if(data.result==true){			
+				//$('.popup.i02').removeClass('on');
+				document.location.href='./sub09.html';
+				//document.location.href='./fee.php';Swal.fire({text:'접수되었습니다. 입금 확인후 처리 됩니다.',timer:1000});  
+				
+			}
+			else Swal.fire({html:data.message}); 
+		}
+	});		
+	return;
+}
+
+//  가스 구매 폼
+function gasform_submit(f)
+{
+	event.preventDefault();
+	var formData = $(f).serialize();		
+
+	$.ajax({
+		type: "POST",
+		url: "./coin_purchase_update.php",
+		data:formData,
+		cache: false,
+		async: false,
+		dataType:"json",
+		success: function(data) {
+			console.log(data);
+			if(data.result==true){			
+				//$('.popup.i02').removeClass('on');
+				document.location.href='./sub09.html';
+				//document.location.href='./fee.php';Swal.fire({text:'접수되었습니다. 입금 확인후 처리 됩니다.',timer:1000});  
+				
+			}
+			else Swal.fire({html:data.message}); 
+		}
+	});		
+	return;
+}
+
+
+//  입금확인 신창
+function depositform_submit(f)
+{
+	event.preventDefault();
+	var formData = $(f).serialize();		
+	
+	var in_txn_id=$('input[name=in_txn_id]',$(f)).val();
+	if(in_txn_id==''){
+		Swal.fire({text:'<?=lng('Txn Hash를 입력하세요.')?>'});   
+		return;
+	}
+	$.ajax({
+		type: "POST",
+		url: "./coin_purchase_update.php",
+		data:formData,
+		cache: false,
+		async: false,
+		dataType:"json",
+		success: function(data) {
+
+			if(data.result==true){
+				Swal.fire({text:'<?=lng('등록되었습니다.')?>',timer:1000});   
+			}
+			else Swal.fire(data.message);       
+		}
+	});		
+	return;
+}
+
+
+
+
+  </script>
+<?	
+include_once('../_tail.php');
+?>

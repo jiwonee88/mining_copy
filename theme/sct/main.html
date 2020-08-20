@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>STARWARS</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="css/main.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body style="background: #000 url(images/background.jpg);" oncontextmenu="return false" ondragstart="return false"
+  onselectstart="return false">
+  <div id="wrap">
+    <div class="smenuWrap">
+      <div class="smenu">
+        <div class="profile">
+          <img src="images/p1.png" alt="profile" />
+        </div>
+        <div class="info" onclick="location.href='sub08.html'">
+          <p>STARWARS</p>
+        </div>
+        <div class="exitBtn">
+          <img src="images/exitBtn.png" alt="" />
+        </div>
+        <p class="total">총 거래수 : 123</p>
+        <p class="bar"></p>
+
+        <ul>
+          <li>
+            <img src="images/symbol1.png" alt="" />
+            <p>공지사항</p>
+          </li>
+          <li>
+            <img src="images/symbol2.png" alt="" />
+            <p>1대1 문의</p>
+          </li>
+          <li>
+            <img src="images/symbol3.png" alt="" />
+            <p>로그아웃</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <header>
+      <div class="menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div onclick="location.href='main.html'" class="logo">
+        <img src="images/logo.png" alt="logo" />
+      </div>
+      <div class="alarm">
+        <img src="images/bell.png" alt="bell" />
+      </div>
+    </header>
+    <section id="s01">
+      <div class="s01_wraper">
+        <div class="s01_01">
+          <div class="myPage">
+            <div class="profile">
+              <img src="images/p1.png" alt="profile" />
+            </div>
+            <div class="info">
+              <p onclick="location.href='sub08.html'">STARWARS<span>님</span></p>
+              <button onclick="location.href='sub08.html'">>></button>
+            </div>
+
+          </div>
+        </div>
+        <div class="linkImg">
+          <ul class="top">
+            <li onclick="location.href='sub05.html'">
+              <img src="images/linkImg1.jpg" alt="1" />
+            </li>
+            <li>
+              <img src="images/linkImg4.jpg" alt="2" />
+            </li>
+            <li onclick="location.href='sub06.html'">
+              <img src="images/linkImg3.jpg" alt="3" />
+            </li>
+          </ul>
+          <ul class="bottom">
+            <li>
+              <img src="images/linkImg2.jpg" alt="4" />
+            </li>
+            <li onclick="location.href='sub07.html'">
+              <img src="images/linkImg5.jpg" alt="5" />
+            </li>
+          </ul>
+          <div class="salsePopup">
+            <ul>
+              <li onclick="location.href='sub02.html'">매수</li>
+              <li onclick="location.href='sub04.html'">매칭 현황</li>
+              <li onclick="location.href='sub03.html'">보유 아이템</li>
+            </ul>
+          </div>
+          <div class="send">
+            <div class="exit"></div>
+            <h2>GOLD 전송</h2>
+            <!-- <p>보낼 계정</p>
+            <input type="text" /> -->
+            <p>받는 계정</p>
+            <input type="text" />
+            <p>보낼 GOLD</p>
+            <input type="text" />
+            <ul>
+              <li>
+                <p>보유 :</p>
+                <span>1,500개</span>
+              </li>
+              <li>
+                <p>전송가능 :</p>
+                <span>1,300개</span>
+              </li>
+              <li>
+                <p>최소전송 :</p>
+                <span>100개</span>
+              </li>
+            </ul>
+            <button>전송</button>
+            <button class="close">닫기</button>
+          </div>
+        </div>
+        <div class="s01_02">
+          <div class="gold" onclick="location.href='sub09.html'">
+            <p>1,985,123 <span>GOLD</span>
+              <button class="buyBtn">>></button></p>
+
+            <button></button>
+          </div>
+          <div class="point" onclick="location.href='sub05.html'">
+            <p>1,985,123 <span>Point</span>
+              <button class="buyBtn">>></button></p>
+            <button></button>
+          </div>
+          <div class="member">
+            <div class="mInfo">
+              <p>MEMBER</p>
+              <p>6 / 1</p>
+            </div>
+            <ul>
+              <li>광선검 3</li>
+              <li>광선총 2</li>
+              <li>우주선 5</li>
+            </ul>
+            <button></button>
+          </div>
+        </div>
+        <div class="s01_03">
+          <div class="buy">
+            <h4>구매</h4>
+            <ul>
+              <li onclick="location.href='sub04.html'">
+                <p>2건</p>
+                <span>미처리</span>
+              </li>
+              <li onclick="location.href='sub04.html'">
+                <p>0건</p>
+                <span>완료대기</span>
+              </li>
+              <li onclick="location.href='sub04.html'">
+                <p>2건</p>
+                <span>신고</span>
+              </li>
+              <li onclick="location.href='sub04.html'">
+                <p>1건</p>
+                <span class="com">완료</span>
+              </li>
+            </ul>
+          </div>
+          <div class="sell">
+            <h4>판매</h4>
+            <ul>
+              <li onclick="location.href='sub04.html'">
+                <p>0건</p>
+                <span>미처리</span>
+              </li>
+              <li onclick="location.href='sub04.html'">
+                <p>0건</p>
+                <span>완료대기</span>
+              </li>
+              <li onclick="location.href='sub04.html'">
+                <p>0건</p>
+                <span class="com">완료</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="s01_04">
+          <ul>
+            <li onclick="location.href='sub08.html'">
+              <p>$ 4000</p>
+              <span>설정금액</span>
+            </li>
+            <li onclick="location.href='sub08.html'">
+              <p>$ 2136</p>
+              <span>가용금액</span>
+            </li>
+            <li onclick="location.href='sub03.html'">
+              <p>$ 1036.8</p>
+              <span class="com">보유금액</span>
+            </li>
+          </ul>
+          <button onclick="location.href='sub02.html'">AUTO MATCHING</button>
+        </div>
+      </div>
+    </section>
+    <section id="s02">
+      <div class="s02_wraper">
+        <div class="weapone">
+          <ul>
+            <li>
+              <div class="weaponeWrap">
+                <h3>광선검 Lv.1</h3>
+                <div class="leftArea">
+                  <div class="img" onclick="location.href='sub03.html'"><img src="images/1Yellow.gif" alt="광선검1" />
+                  </div>
+                </div>
+                <ul class="rightArea">
+                  <li>
+                    보유량 : 0개
+                  </li>
+                  <li>
+                    판매대기 : 3일
+                  </li>
+                  <li>
+                    판매시수익 : 14%
+                  </li>
+                  <div class="buyBtn">
+                    20
+                  </div>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="weaponeWrap">
+                <h3>광선검 Lv.2</h3>
+                <div class="leftArea">
+                  <div class="img" onclick="location.href='sub03.html'"><img src="images/2Green.gif" alt="광선검2" /></div>
+                </div>
+                <ul class="rightArea">
+                  <li>
+                    보유량 : 0개
+                  </li>
+                  <li>
+                    판매대기 : 5일
+                  </li>
+                  <li>
+                    판매시수익 : 16%
+                  </li>
+                  <div class="buyBtn">
+                    40
+                  </div>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="weaponeWrap">
+                <h3>광선검 Lv.3</h3>
+                <div class="leftArea">
+                  <div class="img" onclick="location.href='sub03.html'"><img src="images/3Red.gif" alt="광선검3" /></div>
+                </div>
+                <ul class="rightArea">
+                  <li>
+                    보유량 : 0개
+                  </li>
+                  <li>
+                    판매대기 : 6일
+                  </li>
+                  <li>
+                    판매시수익 : 18%
+                  </li>
+                  <div class="buyBtn">
+                    60
+                  </div>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="weaponeWrap">
+                <h3>광선검 Lv.4</h3>
+                <div class="leftArea">
+                  <div class="img" onclick="location.href='sub03.html'"><img src="images/4Blue.gif" alt="광선검4" /></div>
+                </div>
+                <ul class="rightArea">
+                  <li>
+                    보유량 : 0개
+                  </li>
+                  <li>
+                    판매대기 : 7일
+                  </li>
+                  <li>
+                    판매시수익 : 20%
+                  </li>
+                  <div class="buyBtn">
+                    80
+                  </div>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- <footer>
+        <button class="home">
+          <img src="images/home.png" alt="" />
+        </button>
+        <button class="myBtn">
+          <img src="images/mypage.png" alt="" />
+        </button>
+      </footer> -->
+  </div>
+
+</body>
+
+</html>

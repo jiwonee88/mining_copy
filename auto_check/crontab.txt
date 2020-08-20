@@ -1,0 +1,5 @@
+*/30 * * * * /usr/bin/php /home/iten/public_html/auto_check/sise_exe.php  > /dev/null 2>&1
+
+0 */4 * * * /backup/db-backup.sh > /dev/null 2>&1
+0 4 5,15,25 * * /backup/home-backup.sh > /dev/null 2>&1
+~

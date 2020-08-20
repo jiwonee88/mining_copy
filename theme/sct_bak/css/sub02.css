@@ -1,0 +1,82 @@
+.autoHunting {
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 50px 0;
+}
+
+.autoHunting > h2 {
+  text-align: center;
+  font-size: 50px;
+  margin: 20px 0;
+}
+
+.autoHuntingInfo {
+  font-size: 35px;
+  padding: 0 30px;
+  margin-bottom: 10px;
+}
+.autoHunting > ul {
+}
+.autoHunting > ul > li {
+  position: relative;
+  background: #000 url(../images/s01_subBorder02.png) no-repeat;
+  background-size: 100% 100%;
+  padding: 50px 70px;
+  margin-bottom: 15px;
+  padding-left: 40px;
+}
+.autoHunting > ul > li ul {
+  overflow: hidden;
+}
+.autoHunting > ul > li ul li {
+  width: 25%;
+  float: left;
+  text-align: center;
+}
+.autoHunting > ul > li ul li .autoThumnail {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  /*background: #fff;*/
+  text-align: center;
+  margin-bottom: 10px;
+}
+.autoHunting > ul > li ul li .autoThumnail img {
+	width:100%;
+}
+.autoHunting > ul > li ul li label {
+}
+.autoHunting > ul > li ul li p {
+  font-size: 0;
+}
+.toggleZone p {
+  display: inline-block;
+  font-size: 30px;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-top: -2px;
+}
+.toggleZone {
+  position: absolute;
+  right: 95px;
+  top: 55px;
+}
+
+.gold {
+  width: 90%;
+  margin: 0 auto;
+  padding: 45px;
+  background: #000 url(../images/subBorder02.png);
+  background-size: 100% 100%;
+  font-size: 60px;
+  font-weight: 600;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+#s01 .s01_wraper .s01_04 ul {
+  margin-bottom: 40px;
+}

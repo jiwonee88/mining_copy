@@ -1,0 +1,356 @@
+#menu
+Notice
+1 to 1 Inquiry
+Log out
+
+#index
+Send Gold
+Send to 
+Member ID
+GOLD to send
+Quantity
+Total
+Available to send
+Min. to send
+close
+Buy
+null
+ready
+Waiting
+Claim
+complete
+Sell
+Set amount
+Available
+My assets
+Reserve
+null
+Wait for Sales
+days
+Sales revenue
+Transfer completed
+Total sales today
+
+#login
+Member ID
+password
+LOGIN
+Sign up
+
+#matching
+null
+Set amount
+Available
+My assets
+account
+
+#myitem
+possesion
+There is no product you have
+
+#trade
+buy
+ready
+Waiting
+claim
+complete
+sale
+Set amount
+Available
+My assets
+There are no products in transit
+caution
+Are you sure you want to proceed with the transaction? Completed transactions cannot be re-run
+Proceed
+Copy completed
+Copy failure
+TXID is not entered
+Would you like to proceed
+Deposit confirmation request has been accepted
+State
+Confirmation date
+The transaction has ended
+Buyer is reporting
+Report of seller
+Has been reported
+Please enter only if you are sending a tether!
+If the txid is not entered when purchasing tether, the purchase is not processed.
+After confirming the deposit, you must send the character to the other party
+
+#history
+Gold History
+Store details
+Point History
+date
+Kinds
+Quantity
+Contents
+ 
+#account
+profile
+Mobile Phone Number
+Account Number
+registration
+registration
+Change login password
+Change
+Precautions
+If you do not enter your bank information correctly, you may suffer disadvantages such as delayed transactions.
+Bank Information
+name of bank
+Account Holder
+Save
+close
+If you do not enter the correct ERC20 wallet address, you will lose your deposit.
+Any damage caused by incorrect entry is your concerns.
+Wallet address
+USDT wallet address
+Please enter a new password
+Enter password
+Enter Confirmation Password
+Referral URL
+If you select Cash + Tether, more matching can be done.
+There may be restrictions depending on the country's payment environment.
+Tether matching
+Cash matching
+If you don't set a limit amount, no match will be made.
+The limit is in dollars.
+Set amount
+Holding
+Available
+cash
+Payment Method
+Buy
+<p>When purchasing GOLD, discounts apply depending on the selected product</p><p>.</p>
+Quantity
+Final payment quantity
+Final payment amount
+Account
+Add Account
+Activated
+Activation
+send
+Unactivation
+Confirm delivery
+Account information
+Transmission GOLD input
+Transfer available
+Minimum transmission
+Confirm
+Copy completed
+Copy failure
+Has been applied
+Cash or tether
+Tether
+Account added
+Has been transferred
+Changed
+cash
+Cash or tether
+Tether
+
+#buy gold
+Regdate
+My points
+Buy
+Precautions
+When applying GOLD, discount is applied according to the selected product
+account
+Quantity
+Final payment quantity
+Final payment amount
+Save
+close
+Copy completed
+Copy failure
+Enter Txn Hash.
+Registered.
+buying
+Order product
+Quantity
+price
+KRW price
+state
+Wallet information
+Unspecified
+name of bank
+Account Number
+Account Holder
+Paste account depositor name or Txid
+Account Depositor Name or Transaction Hash (Tether Transfer Transaction Number)
+You must enter it. If not entered, approval is not possible
+Receiver’s Info
+Payment confirmation
+
+#transfer gold
+My points
+Send
+<p>Make sure to check the ID of the member to be sent.<br>The GOLD paid for the bonus cannot be transferred</p>
+Transferable amount
+Member ID to be sent
+Member ID
+Number of gold to be transferred
+Transmission quantity
+close
+Transfer completed
+
+#join
+Sign Up
+ID
+password
+Confirm Password
+password
+Confirm Password
+Country code
+name
+Mobile Phone Number
+Authenticate
+Certification Number
+Certification number input
+Certification verification
+Referrer Code
+Confirm
+cancel
+Please enter your mobile phone number
+I have sent the verification number.\nPlease enter the verification number you received.
+The authentication number has been confirmed
+Please enter a password of at least 3 characters.
+Password is not the same
+Please enter the referrer code
+You cannot enter your ID as a referrer code.
+Please enter the transfer password at least 3 characters
+Enter membership information
+Enter your mobile phone number
+Sign up
+Please enter your name
+
+#trade buy
+Buy
+Order No
+Buyer ID
+Seller ID
+Seller
+Buyer
+Seller Phone No
+KRW
+Fee
+Order Date
+Payment Date
+Copy and paste the Txid Hash
+Please fill out when sending USDT
+If txid is not entered when purchasing by USDT, this order will not be completed.
+View TXID
+Waiting for payment
+Payment completed
+
+#trade sell
+Sell
+Buyer Phone No
+Tether transaction number 
+You must send the character to the other party after checking the amount received
+Name of depositor
+
+#shop
+SHOP
+Final payment amount
+Buy
+Would you like to proceed with the purchase
+Proceed
+
+#back process-set
+The account was frozen due to no participation in transaction matching.
+Please enter the set amount
+Maximum setting amount
+Can not save
+Please enter a payment method
+Maximum addable accounts
+Can't create account
+Please enter a row name
+Please enter your account number
+Please enter a depositor
+This account number is already in use
+The minimum holding amount is insufficient.
+Can not be changed
+Please enter your wallet address
+This address is already in use
+This address is not confirmed
+Please enter a password
+Passwords do not match
+Changed
+Cannot change password
+
+#back process-trade
+The account was frozen due to no participation in transaction matching.
+No transaction information found
+This transaction has already been completed.
+This transaction has already been canceled.
+Please enter the name of the depositor
+Enter the transaction hash when depositing the tether, and the name of the depositor when transferring the account
+Can't handle it'
+No transaction information found
+This is not a buying transaction
+Report is not possible
+Report has already been received
+Can not handle
+This is not a sale
+Has been processed
+
+#back process-transfer
+Please enter the ID to receive the transfer
+You cannot send to the same ID
+I can't find the account with the entered ID
+Please enter the amount to be transferred
+There is not enough quantity to transfer
+Post-transfer balance is less than the minimum activation amount
+The amount to be transferred must be greater than the fee.
+Less than the minimum transfer quantity
+The transfer password is not correct
+
+#back process-others transfer
+Please enter the member ID to be sent
+I can't send it to myself
+I can't find the member to receive
+It can only be sent to sub-members.
+Please enter the quantity to send
+Insufficient quantity to send
+You must send an amount greater than the transfer fee
+Minimum transfer amount
+
+#back process-purchase
+There is no deposit
+There is no purchase quantity
+Deposit accounts cannot be issued
+Can not register
+
+#back process-automatching
+The account was frozen due to no participation in transaction matching.
+Can not save
+This account is not activated
+Check the available amount
+
+#back process-joining
+The wrong approach
+Please enter your ID here is no member ID value. Please use the right way
+The authentication number is not correct
+Please enter a valid name.
+Please enter a password
+Passwords do not match
+The Referral Code doesn't exist.
+You cannot enter your ID as a referrer code
+
+#history
+Gold History
+Store usage
+Point History
+date
+Quantity
+Contents
+There is no history
+There is no usage history
+
+#my item
+There is no product you have
+
+#상품명
+Gold Pick
+Diamond Pick

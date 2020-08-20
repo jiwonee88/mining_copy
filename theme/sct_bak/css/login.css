@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700|Noto+Sans:400,700&display=swap');
+
+
+/* Animation properties */
+.star {
+  animation: star 5s ease-out;
+}
+.wars {
+  animation: wars 5s ease-out;
+}
+.byline span {
+  animation: spin-letters 5s linear;
+}
+.byline {
+  animation: move-byline 5s linear;
+}
+
+/* Keyframes */
+@keyframes star {
+  0% {
+    opacity: 0;
+    transform: scale(1.5) translateY(-0.75em);
+  }
+  20% {
+    opacity: 1;
+  }
+  89% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-1000em);
+  }
+}
+
+@keyframes wars {
+  0% {
+    opacity: 0;
+    transform: scale(1.5) translateY(0.5em);
+  }
+  20% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-1000em);
+  }
+}
+
+@keyframes spin-letters {
+  0%,
+  10% {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+  30% {
+    opacity: 1;
+  }
+  70%,
+  86% {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+  95%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes move-byline {
+  0% {
+    transform: translateZ(5em);
+  }
+  100% {
+    transform: translateZ(0);
+  }
+}
+
+.starwars-demo {
+  perspective: 800px;
+  transform-style: preserve3d;
+}
+
+body {
+	background: #000 url(../images/background.jpg);
+}
+
+.starwars-demo {
+  height: 17em;
+  left: 50%;
+  position: absolute;
+  top: 53%;
+  transform: translate(-50%, -50%);
+  width: 34em;
+}
+
+.byline span {
+  display: inline-block;
+}
+
+img {
+  width: 100%;
+}
+
+.star,
+.wars,
+.byline {
+  position: absolute;
+}
+
+.star {
+  top: -0.75em;
+}
+
+.wars {
+  bottom: -0.5em;
+}
+
+.byline {
+  color: #fff;
+  font-family: "ITC Serif Gothic", Lato;
+  font-size: 2em;
+  left: -2em;
+  letter-spacing: 0.4em;
+  right: -2em;
+  text-align: center;
+  text-transform: uppercase;
+  top: 31.5%;
+}
+
+@media only screen and (max-width: 600px) {
+  .starwars-demo {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .starwars-demo {
+    font-size: 7px;
+  }
+}
+
+.shootingStar {
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+  top: 100px;
+  left: 400px;
+  position: relative;
+  transform-origin: 100% 0;
+  animation: star-ani 1s infinite ease-out;
+  animation-direction: normal;
+  opacity: 0;
+}
+.shootingStar:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 4px;
+  border: 2px solid #f00;
+  border-width: 2px 150px 2px 150px;
+  border-color: transparent transparent transparent #fff;
+  transform: rotate(-45deg) translate3d(1px, -1px, 0);
+  transform-origin: 0% 100%;
+  animation: shooting-ani 1s infinite ease-out;
+  animation-direction: normal;
+}
+
+.pink {
+  top: 150px;
+  left: 500px;
+  background: #ff5a99;
+  animation-delay: 1.8s;
+}
+.pink:after {
+  border-color: transparent transparent transparent #ff5a99;
+  animation-delay: 1.8s;
+}
+
+.blue {
+  top: 100px;
+  left: 450px;
+  background: #4dabff;
+  animation-delay: 4.5s;
+}
+.blue:after {
+  border-color: transparent transparent transparent #4dabff;
+  animation-delay: 4.5s;
+}
+
+.yellow {
+  top: 50px;
+  left: 600px;
+  background: #ffcd5c;
+  animation-delay: 5.8s;
+}
+.yellow:after {
+  border-color: transparent transparent transparent #ffcd5c;
+  animation-delay: 5.8s;
+}
+
+@-webkit-keyframes shooting-ani {
+  0% {
+  }
+  50% {
+    transform: scale(1) rotate(-45deg) translate(0px, 0px);
+  }
+  100% {
+    transform: scale(0.5) rotate(-45deg) translate(0px, -1px);
+  }
+}
+
+@-webkit-keyframes star-ani {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0) translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(0) translate3d(-200px, 200px, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1) rotate(0) translate3d(-300px, 300px, 0);
+  }
+}
+
+#wrap {
+  height: 100%;
+}
+
+#log {
+  display: none;
+  width: 80%;
+  text-align: center;
+  top: 20%;
+  position: absolute;
+  left: 50%;
+  margin-left: -40%;
+  padding: 10% 0;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px black, 0 0 15px #ffd000, 0 0 30px yellow;
+}
+#log img {
+  width: 50%;
+}
+#log .imgWraper {
+  margin-bottom: 8%;
+}
+
+#log input {
+  display: block;
+  width: 70%;
+  margin: 20px auto;
+  height: 80px;
+  font-size: 35px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+#log select {
+  display: block;
+  width: 70%;
+  margin: 20px auto;
+  height: 80px;
+  font-size: 35px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+#log .btnWraper {
+  margin-top: 8%;
+}
+#log button {
+  display: block;
+  width: 70%;
+  margin: 30px auto;
+  height: 105px;
+  font-size: 25pt;
+  font-weight: 600;
+  font-family: "ITC Serif Gothic", Lato;
+  border: none;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+}
+#log button.login {
+  background-size: cover;
+  background-position: center center;
+}
+#log button.signUp {
+  background-size: cover;
+  background-position: center center;
+}
+
+#log .bottomComment {
+  width: 100%;
+  color: #fff;
+  position: absolute;
+  bottom: 3%;
+}
+
+@media (min-width: 1024px) {
+  #wrap {
+    width: 1050px;
+    margin: 0 auto;
+  }
+  #log {
+    width: 40%;
+    margin-left: -20%;
+  }
+  #log button {
+    background-size: 100% 100%;
+  }
+}
+
+
+.flag-btn {z-index:999999999999999999999999999999;}
+.flag-btn *{font-size:34px;line-height:70px;}
+.flag-btn div{width:300px;font-size:34px;}
+.flag-btn button{width:300px;height:80px;}
+
+.flag{ padding:5px 0px 5px 150px;}
+.flag-kr{background:url('../img/flag/South-Korea-flag.png') 10px 50% no-repeat; background-size:100px 40px;}
+.flag-us{background:url('../img/flag/USA-flag.png') 10px 50% no-repeat;  background-size:100px 40px;}
+.flag-vn{background:url('../img/flag/Vietnam-flag.png') 10px 50% no-repeat;  background-size:100px 40px;}
+.flag-cn{background:url('../img/flag/China-flag.png') 10px 50% no-repeat; background-size:100px 40px;}
+.flag-jp{background:url('../img/flag/Japan-flag.png') 10px 50% no-repeat;  background-size:100px 40px;}
+.flag-th{background:url('../img/flag/Thailand-flag.png') 10px 50% no-repeat;  background-size:100px 40px;}
+

@@ -1,0 +1,475 @@
+.cf:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#s01 .s01_wraper .s01_02 > div {
+  position: relative;
+}
+
+#s01 .s01_wraper .s01_02 p {
+  text-align: left;
+  margin-left: 30px;
+}
+
+#s01 .s01_wraper .s01_02 .set {
+  position: absolute;
+  top: 60px;
+  right: 60px;
+}
+
+.sub08 {
+}
+.sub08 .stone1 {
+  background: #000 url(../images/mainBorder01.png);
+  background-size: 100% 100%;
+  padding: 80px 120px;
+  position: relative;
+}
+.sub08 .stone1 .thumnail {
+  width: 150px;
+  height: 150px;
+  background: url(../images/gold.png);
+  background-size: 100% 100%;
+  float: left;
+}
+.sub08 .stone1 p {
+  float: right;
+  font-size: 80px;
+  margin-top: 30px;
+}
+
+.sub08 .stone2 {
+}
+.sub08 .stone2 .myId {
+  background: #000 url(../images/subBorder02.png);
+  background-size: 100% 100%;
+  padding: 80px 120px;
+  overflow: hidden;
+  font-size: 60px;
+  margin: 50px 0;
+}
+.sub08 .stone2 .static {
+  background: url(../images/staticBtn.dark.png) no-repeat;
+  font-weight: 600;
+  background-size: 100% 100%;
+  padding: 15px 30px;
+  font-size: 30px;
+  color: #fff;
+  float: right;
+}
+.sub08 .stone2 ul {
+}
+.sub08 .stone2 ul li {
+  padding: 60px 45px;
+  background: #000 url(../images/subBorder02.png);
+  background-size: 100% 100%;
+  position: relative;
+}
+.sub08 .stone2 ul li .top {
+  padding: 0 60px;
+  box-sizing: border-box;
+  position: relative;
+  padding-top: 15px;
+}
+.sub08 .stone2 ul li .top input {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50px;
+  left: 60px;
+}
+.sub08 .stone2 ul li .top p {
+  font-size: 55px;
+  margin-left: 65px;
+}
+.sub08 .stone2 ul li .top span {
+  display: block;
+  font-size: 40px;
+  margin-left: 65px;
+}
+.sub08 .stone2 ul li .top button {
+  background: url(../images/staticBtn.dark.png) no-repeat;
+  font-weight: 600;
+  background-size: 100% 100%;
+  padding: 15px 40px;
+  font-size: 30px;
+  color: #fff;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+
+.sub08 .stone2 ul li .bottom {
+  padding: 0 60px;
+  margin-top: 30px;
+  position: relative;
+  margin-bottom: 30px;
+}
+.sub08 .stone2 ul li .bottom .stones {
+  overflow: hidden;
+  border-top: 1px solid #fff;
+  padding-top: 30px;
+}
+.sub08 .stone2 ul li .bottom .stones .thumnail {
+  width: 100px;
+  height: 100px;
+  background: url(../images/gold.png);
+  background-size: 100% 100%;
+  float: left;
+}
+.sub08 .stone2 ul li .bottom .stones p {
+  font-size: 45px;
+  float: left;
+  margin-left: 30px;
+  margin-top: 25px;
+}
+
+.sub08 .stone2 ul li .bottom .btns {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+}
+.sub08 .stone2 ul li .bottom .btns button {
+  background: url(../images/staticBtn2.png) no-repeat;
+  font-weight: 600;
+  background-size: 100% 100%;
+  padding: 15px 40px;
+  font-size: 30px;
+  color: #fff;
+  margin: 0 5px;
+}
+.sub08 .stone2 .sendInfo.on {
+  display: block;
+  z-index:1001;
+}
+.sub08 .stone2 .sendInfo {
+  display: none;
+  position: absolute;
+  z-index:1001;
+  background: #000 url(../images/sendInfo.png);
+  background-size: 100% 100%;
+  width: 100%;
+  top: 20px;
+  left: 0;
+  padding: 30px 0;
+}
+.sub08 .stone2 .sendInfo h3 {
+  font-size: 50px;
+  text-align: center;
+  margin-top: 50px;
+}
+.sub08 .stone2 .sendInfo p {
+  text-align: center;
+  font-size: 40px;
+  margin: 30px 0;
+}
+.sub08 .stone2 .sendInfo input {
+  display: block;
+  width: 60%;
+  font-size: 60px;
+  padding: 10px 0;
+  margin: 10px auto;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.sub08 .stone2 .sendInfo span {
+  text-align: center;
+  display: block;
+  font-size: 35px;
+}
+.sub08 .stone2 .sendInfo .btns {
+  text-align: center;
+  margin-top: 30px;
+}
+.sub08 .stone2 .sendInfo .btns button {
+  display: inline-block;
+  background: url(../images/staticBtn.dark.png) no-repeat;
+  font-weight: 600;
+  background-size: 100% 100%;
+  padding: 10px 40px;
+  font-size: 30px;
+  color: #fff;
+  margin: 0 5px;
+  margin-bottom: 60px;
+}
+.sub08 .stone2 .sendInfo .btns button:nth-child(2) {
+  background: url(../images/staticBtn2.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.stone3 {
+  padding: 60px 100px;
+  background: #000 url(../images/s01_mainBorder02.png);
+  background-size: 100% 100%;
+  font-size: 50px;
+  margin-bottom: 50px;
+  position: relative;
+}
+.stone3 h3 {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.stone3 .top {
+}
+.stone3 .top p {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.stone3 .top span {
+  font-size: 40px;
+}
+.stone3 .bottom {
+  border-top: 1px solid #fff;
+  margin-top: 30px;
+  padding-top: 30px;
+}
+.stone3 .bottom p {
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+.stone3 .bottom span {
+  font-size: 40px;
+  display: block;
+  margin: 3px 0;
+}
+.stone3 button.static {
+  background: url(../images/staticBtn.dark.png) no-repeat;
+  background-size: 100% 100%;
+  padding: 25px 40px;
+  font-size: 30px;
+  color: #fff;
+  width: 275px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.smenu {
+  color: #fff;
+}
+
+#s01 .s01_wraper .s01_02 .point {
+  padding: 40px;
+}
+
+#s01 .s01_wraper .s01_02 .sendInfo {
+  position: absolute;
+  z-index:1001;
+  background: #000 url(../images/sendInfo.png);
+  background-size: 100% 100%;
+  width: 100%;
+  top: 20px;
+  left: 0;
+  padding: 30px 0;
+}
+.s01_02 .sendInfo h3 {
+  font-size: 50px;
+  text-align: center;
+  margin-top: 50px;
+}
+.s01_02 .sendInfo p {
+  text-align: center;
+  font-size: 40px;
+  margin: 30px 0;
+}
+.s01_02 .sendInfo input {
+  display: block;
+  width: 60%;
+  font-size: 60px;
+  padding: 10px 0;
+  margin: 10px auto;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.s01_02 .sendInfo span {
+  text-align: center;
+  display: block;
+  font-size: 35px;
+}
+.s01_02 .sendInfo .btns {
+  text-align: center;
+  margin-top: 30px;
+}
+.s01_02 .sendInfo .btns button {
+  display: inline-block;
+  background: url(../images/staticBtn.dark.png) no-repeat;
+  font-weight: 600;
+  background-size: 100% 100%;
+  padding: 10px 40px;
+  font-size: 30px;
+  color: #fff;
+  margin: 0 5px;
+  margin-bottom: 60px;
+}
+.s01_02 .sendInfo .btns button:nth-child(2) {
+  background: url(../images/staticBtn2.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+#s01 .s01_wraper .s01_02.s08 {
+  position: relative;
+}
+#s01 .s01_wraper .s01_02.s08 .sendInfo p {
+  text-align: center;
+}
+#s01 .s01_wraper .s01_02.s08 .sendInfo.on {
+  display: block;
+}
+#s01 .s01_wraper .s01_02.s08 .sendInfo {
+  background: #000 url(../images/s08_subBorder02.png) no-repeat;
+  background-size: 100% 100%;
+  padding: 60px 0;
+  display: none;
+}
+.s08 .sendInfo h3 {
+  margin-bottom: 50px;
+  margin-top: 60px;
+}
+.s08 .sendInfo p {
+  font-size: 38px;
+  margin: 0 auto;
+}
+.s08 .sendInfo h4 {
+  font-size: 38px;
+  text-align: center;
+  margin-top: 30px;
+  color: #ffd000;
+}
+.s08 .sendInfo .radioBtn {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.s08 .sendInfo label {
+  display: block;
+  font-size: 38px;
+}
+.s08 .sendInfo input {
+  display: inline-block;
+
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  margin: 30px 0;
+  margin-top: 25px;
+  margin-right: 10px;
+}
+.goldPopup .popupInfo {
+}
+.goldPopup .popupInfo ul {
+  width: 60%;
+  margin: 30px auto;
+  box-sizing: border-box;
+}
+.goldPopup .popupInfo ul li {
+  overflow: hidden;
+  font-size: 40px;
+  margin: 25px 0;
+}
+#s01 .s01_wraper .s01_02 .goldPopup .popupInfo ul li p {
+  width: 40%;
+  float: left;
+  margin: 0;
+  text-align: left;
+}
+#s01 .s01_wraper .s01_02 .goldPopup .popupInfo ul li input {
+  margin: 0;
+  width: auto;
+  height: auto;
+  font-size: 40px;
+  width: 100%;
+  padding: 10px 0;
+}
+.goldPopup .popupInfo ul li div {
+  width: 60%;
+  float: right;
+}
+.goldPopup .popupInfo ul li span {
+  width: 60%;
+  float: right;
+  text-align: right;
+}
+.stone3 .sendInfo.on {
+  display: block;
+}
+.stone3 .sendInfo {
+  position: absolute;
+  z-index:1001;
+  width: 100%;
+  bottom: 20px;
+  left: 0;
+  padding: 30px 0;
+  background: #000 url(../images/s08_subBorder02.png) no-repeat;
+  background-size: 100% 100%;
+  padding: 60px 0;
+  display: none;
+}
+.stone3 .sendInfo h3 {
+  font-size: 46px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 60px;
+}
+.stone3 .sendInfo p {
+  text-align: center;
+  font-size: 38px;
+}
+.stone3 .sendInfo h4 {
+  text-align: center;
+  font-size: 40px;
+  color: #ffd000;
+}
+.stone3 .sendInfo h4.top {
+  margin-top: 30px;
+}
+.stone3 .sendInfo h4.bot {
+  margin-bottom: 30px;
+}
+.stone3 .sendInfo .popupInfo {
+}
+.stone3 .sendInfo .popupInfo h3 {
+}
+.stone3 .sendInfo .popupInfo input {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  font-size: 40px;
+  padding: 15px 0;
+  text-align: center;
+}
+.stone3 .sendInfo .btns {
+  text-align: center;
+  margin-top: 30px;
+}
+.stone3 .sendInfo .btns button {
+  display: inline-block;
+  background: url(../images/staticBtn.png) no-repeat;
+  font-weight: 600;
+  background-size: 100% 100%;
+  padding: 10px 40px;
+  font-size: 30px;
+  color: #fff;
+  margin: 0 5px;
+  margin-bottom: 60px;
+}
+.stone3 .sendInfo .btns button:nth-child(2) {
+  background: url(../images/staticBtn2.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.buyBtn {
+  display: inline-block;
+  background: url(../images/staticBtn.png) no-repeat;
+  font-weight: 600;
+  background-size: 100% 100%;
+  padding: 10px 40px;
+  font-size: 30px;
+  color: #fff;
+  vertical-align: middle;
+  margin-top: -15px;
+  vertical-align: middle;
+}

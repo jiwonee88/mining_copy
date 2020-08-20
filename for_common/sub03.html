@@ -1,0 +1,83 @@
+<?php
+include_once('./_common.php');
+
+add_stylesheet('<link rel="stylesheet" href="'.G5_THEME_URL.'/css/sub02.css">',1);
+add_stylesheet('<link rel="stylesheet" href="'.G5_THEME_URL.'/css/sub03.css">',1);
+
+include_once('../_head.php');
+?>
+ 
+    <section id="s01">
+      <div class="s01_wraper">
+        <div class="s01_01">
+          <div class="myPage">
+            <div class="profile">
+              <img src="<?=G5_THEME_URL?>/images/p1.png" alt="profile" />
+            </div>
+           <div style="width:100%;padding-left:350px;">
+            <div class="info">
+              <p onclick="location.href='/for_common/sub08.html'"><?=$member[mb_id]?><span><?=lng('님')?></span></p>
+              <button onclick="location.href='/for_common/sub08.html'" class='angle-btn'><i class="fas fa-angle-double-right"></i></button>
+            </div>
+			</div>
+           
+          </div>
+        </div>
+        <div class="autoHunting">
+          <h2>MY ITEM</h2>
+          <ul>
+		  
+		  <?
+			$temp=sql_fetch("select count(*) cnt from {$g5['cn_item_cart']} where mb_id='$member[mb_id]'  and is_soled!='1'  ",1);
+			$re=sql_query("select * from {$g5['cn_item_cart']} where mb_id='$member[mb_id]' and is_soled!='1'  group by cn_item order by cn_item ",1);
+			while($data=sql_fetch_array($re)){
+			?>
+		  
+            <li>
+              <div class="type">
+                <div class="typeThumnail">
+                  <img src="<?=G5_THEME_URL?>/images/item/<?=$g5[cn_item][$data[cn_item]][imgm]?>" alt="<?=$g5[cn_item][$data[cn_item]][name_kr]?>">
+                </div>
+				<?
+				$re2=sql_query("select * from {$g5['cn_item_cart']} where mb_id='$member[mb_id]' and cn_item='$data[cn_item]'  and is_soled!='1' ",1);				
+					?>
+                <div class="middleArea">
+                  <h3><?=lng($g5[cn_item][$data[cn_item]][name_kr])?></h3>
+                  <span><?=$data[ct_days]?><?=lng('일')?></span>
+                  <span class="per"><?=$data[ct_interest]?>%</span> 
+				  <br>
+					
+					<span><?=lng('보유')?></span>
+                  <span class="per"><?=sql_num_rows($re2)?><?=lng('개')?></span> 
+				  	
+                </div>
+               
+			   <div class="middleArea w-100 d-block pl-1">                
+					<?
+					while($data2=sql_fetch_array($re2)){?>
+					<p><?=substr($data2[ct_wdate],5,5)?> <span>$ <?=number_format2($data2[ct_buy_price])?></span> / <?=substr($data2[ct_validdate],5,5)?><span>$<?=number_format2($data2[ct_sell_price])?> (￦<?=number_format2($data2[ct_sell_price]*$g5['cn_won_usd'])?>)</span></p>
+
+					<? }?>
+                </div>
+			   
+			   
+              </div>
+            </li>
+			<? }?>
+			
+          </ul>
+        </div>
+		</div>
+		
+<?
+if(sql_num_rows($re)==0){?>
+<div class='text-center mt-5'>
+<?=lng('보유한 '.$g5[cn_item_name].'이 없습니다')?>
+</div>
+<? }?>
+
+    </section>
+
+<?	
+include_once('../_tail.php');
+?>

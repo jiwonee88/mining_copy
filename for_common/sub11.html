@@ -1,0 +1,302 @@
+<?php
+include_once('./_common.php');
+
+add_stylesheet('<link rel="stylesheet" href="'.G5_THEME_URL.'/css/sub04.css">',1);
+add_javascript('<script src="'.G5_THEME_URL.'/extend/clipboard.min.js"></script>',1);
+
+include_once('../_head.php');
+
+//전송 가능 금액
+$enable_sum=get_eanble_trans($member[mb_id],$rpoint,'i');
+?> 
+<style>
+    .currentState .leftArea {
+      padding: 20px 40px;
+    }
+
+    .currentState .leftArea p {
+      margin-bottom: 15px;
+    }
+
+    .currentState .bottomArea ul {
+      text-align: center;
+    }
+
+    .currentState .bottomArea li {
+
+      display: inline-block;
+    }
+
+    .currentState .bottomArea button {}
+
+    #s01 .s01_wraper .s01_02 h2 {
+      font-size: 45px;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .currentState .leftArea .thumnail {
+      background: url(<?=G5_THEME_URL?>/images/gold.png);
+      background-size: 100% 100%;
+    }
+
+    .s01_02 .gold button,
+    .s01_02 .point button {
+      display: inline-block;	  
+      background: url(<?=G5_THEME_URL?>/images/staticBtn.dark.png) no-repeat;
+      font-weight: 600;
+      background-size: 100% 100%;
+      padding: 10px 40px;
+      font-size: 30px;
+      color: #fff;
+      margin: 0 5px;
+      vertical-align: middle;
+      margin-top: 14px;
+      margin-left: 20px;
+    }
+
+    .s01_02 .gold p,
+    .s01_02 .point p {
+      text-align: left;
+      padding-left: 12%;
+    }
+
+    .s01_02 {}
+
+    .sendInfo.on {
+      display: block;
+    }
+
+    .sendInfo {
+      position: absolute;
+      z-index: 1000;
+      width: 100%;
+      top: 30%;
+      left: 0;
+      padding: 30px 0;
+      background: #000 url(<?=G5_THEME_URL?>/images/s08_subBorder02.png) no-repeat;
+      background-size: 100% 100%;
+      padding: 60px 0;
+      display: none;
+    }
+
+    .sendInfo h3 {
+      font-size: 50px;
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+
+    .sendInfo .ul {
+      width: 500px;
+      margin: 50px auto;
+      font-size: 40px;
+
+    }
+
+    .sendInfo .ul li {
+      overflow: hidden;
+    }
+
+    .sendInfo .ul li p {
+      float: left;
+    }
+
+    .sendInfo .ul li span {
+      float: right;
+    }
+
+    .sendInfo p {
+      text-align: center;
+      font-size: 40px;
+    }
+
+    .sendInfo h4 {
+      text-align: center;
+      font-size: 40px;
+      color: #ffd000;
+    }
+
+
+    .sendInfo .popupInfo {}
+
+    .sendInfo .popupInfo h3 {}
+
+    .sendInfo .popupInfo input {
+      width: 80%;
+      margin: 0 auto;
+      display: block;
+      font-size: 40px;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    .sendInfo .btns {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .sendInfo .btns button {
+      display: inline-block;
+      background: url(<?=G5_THEME_URL?>/images/staticBtn.png) no-repeat;
+      font-weight: 600;
+      background-size: 100% 100%;
+      padding: 10px 40px;
+      font-size: 30px;
+      color: #fff;
+      margin: 0 5px;
+      margin-bottom: 60px;
+    }
+
+    .sendInfo .btns button:nth-child(2) {
+      background: url(<?=G5_THEME_URL?>/images/staticBtn2.png) no-repeat;
+      background-size: 100% 100%;
+    }
+  </style>
+  
+    <section id="s01">
+      <div class="s01_wraper">
+	  
+	  
+        <div class="s01_01">
+          <div class="myPage">
+            <div class="profile">
+              <img src="<?=G5_THEME_URL?>/images/p1.png" alt="profile" />
+            </div>
+           <div style="width:100%;padding-left:350px;">
+            <div class="info">
+              <p onclick="location.href='/for_common/sub08.html'"><?=$member[mb_id]?><span><?=lng('님')?></span></p>
+              <button onclick="location.href='/for_common/sub08.html'" class='angle-btn'><i class="fas fa-angle-double-right"></i></button>
+            </div>
+			</div>
+          </div>
+        </div>
+
+        <div class="s01_02">
+          <h2><?=lng('내 보유 포인트')?></h2>
+          <div class="gold">
+		  <p><is class='balance-value-enable'><?=number_format2($rpoint['i']['_enable'])?></is> <span>GOLD</span>
+              <button class='float-right' ><?=lng('전송하기')?></button>
+            </p>
+
+          </div>
+         
+		  
+          <div class="sendInfo buyPopup">
+			<form id="transferform" name="transferform" action="./coin_transfer_others.php" onsubmit="return  transferform_submit(this);" method="post"  autocomplete="off" >                                                
+			<input type="hidden" name="w" value="u">
+			<input type="hidden" name="mb_id" value="<?=$member['mb_id']?>">
+			<input type="hidden" name="tr_token" value="i">
+
+			
+				
+            <h3 style="margin-top:70px;">주의 사항</h3>
+            <?=lng('<p>전송받을 회원 아이디를 반드시 확인하세요<br>보너스 지급된 GOLD는 전송이 불가능합니다</p>')?>
+            <div class="popupInfo">
+				
+				<h3><?=lng('전송가능금액')?></h3>
+				 <p>$ <is class='balance-value-enable' ><?=number_format($enable_sum)?></is></p>
+
+				
+				<h3><?=lng('전송받을 회원 아이디')?></h3>
+			 <input name="tmb_id" type="text" id="tmb_id" class='common-input w-80' value="<?=$_POST['scanned_id']?>"  placeholder="<?=lng('회원 아이디')?>">
+                   
+					
+					
+              <h3><?=lng('전송할 GOLD수량')?></h3>
+              <input name="tr_amt" type="text" id="tr_amt" class='common-input number-comma w-80'  placeholder="<?=lng('전송수량')?>">  
+            </div>
+			
+           
+            <div class="btns">
+              <button type='submit' class='' ><?=lng('전송하기')?></button>
+              <button type='button' class="exit"><?=lng('닫기')?></button>
+            </div>
+			</form>
+          </div>
+		  
+		  
+        </div>
+		
+	
+		</div>
+    </section>
+    <div class="mask"></div>
+
+
+  <script>
+  
+  
+
+
+$(document).ready(function () {
+$(".currentState .bottomArea button.a01").click(function () {
+  $(this).closest('form').find('.sellerInfo ').toggleClass('d-none');
+});
+
+
+
+
+$("#s01 .s01_wraper .s01_02 .gold button").click(function () {
+  $(".sendInfo").addClass("on");
+  $(".mask").addClass("on");
+});
+
+$(".sendInfo .btns button:nth-child(2)").click(function () {
+  $(".sendInfo").removeClass("on");
+  $(".mask").removeClass("on");
+});
+
+});
+
+// submit 최종 폼체크
+function transferform_submit(f){
+
+	/*
+	// 이체 비밀번호 검사
+	var msg = mb_deposite_pass_check($("input[name=mb_id]").val(),$("input[name=pass]").val());
+	if (msg) {
+		Swal.fire(msg);
+		f.pass.select();
+		return false;
+	}
+	*/
+	$(f).find('button[type=submit]').attr('disabled',true);
+	event.preventDefault();
+	var formData = $(f).serialize();	
+
+	$.ajax({
+		type: "POST",
+		url: "./coin_transfer_others.php",
+		data:formData,
+		cache: false,
+		async: false,
+		dataType:"json",
+		success: function(data) {
+
+			if(data.result){					
+
+				f.reset();
+
+				$('.balance-value').html(data.datas['enable_amt']);
+				$('.balance-value-enable').html(data.datas['trans_enable_amt']);
+				//$('.balance-value-usd').html(data.datas['max_enable_usd'])
+				//$("input[name='max_enable']").val(data.datas['max_enable']);
+
+				Swal.fire('<?=lng('전송이 완료 되었습니다')?>');   
+			}
+			else Swal.fire(data.message);       
+		}
+	});		
+	$(f).find('button[type=submit]').attr('disabled',false);
+	return;
+
+}
+
+
+
+
+  </script>
+<?	
+include_once('../_tail.php');
+?>

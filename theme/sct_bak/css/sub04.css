@@ -1,0 +1,198 @@
+.currentState {
+  background: #000 url(../images/matchingBorder.png) no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  padding: 70px 10px;
+  margin-top: 20px;
+}
+.currentState .leftArea {
+  float: left;
+  width: 30%;
+  padding: 45px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.currentState .leftArea p {
+  font-size: 50px;
+  margin-bottom: 40%;
+  font-weight: 600;
+}
+.currentState .leftArea .thumnail {
+  width: 100%;
+  height: auto;
+  padding: 50% 0;
+  /*background: #fff;*/
+}
+.currentState .leftArea .thumnail img {
+  width: 100%;
+
+}
+.currentState .rightArea {
+  float: left;
+  width: 70%;
+}
+.currentState .rightArea li {
+  margin: 15px 0;
+  font-size: 35px;
+  overflow: hidden;
+}
+.currentState .rightArea li p {
+  float: left;
+  width: 25%;
+}
+.currentState .rightArea li p:nth-child(2) {
+  float: left;
+  width: 75%;
+}
+
+.currentState .bottomArea {
+  float: left;
+  width: 100%;
+  font-size: 0;
+  margin: 20px 0;
+}
+.currentState .bottomArea ul {
+  padding: 0 30px;
+  padding-right: 60px;
+  overflow: hidden;
+}
+.currentState .bottomArea li {
+  width: 25%;
+  display: inline-block;
+  padding: 20px 10px;
+  box-sizing: border-box;
+}
+.currentState .bottomArea button {
+  width: 100%;
+  font-size: 30px;
+  padding: 15px 0;
+  background: URL(../images/staticBtn.dark.png);
+  background-size: 100% 100%;
+  color: #fff;
+  font-weight: 600;
+}
+
+.sellerInfo.on {
+  padding: 50px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  
+}
+.sellerInfo {
+ 
+  overflow: hidden;
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.5s;
+  padding-right: 50px;
+  padding-left: 20px;
+}
+.sellerInfo ul {
+  width: 100%;
+  background: #000 url(../images/subBorder02.png) no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  padding: 70px;
+  box-sizing: border-box;
+}
+.sellerInfo ul li {
+  margin: 15px 0;
+  font-size: 35px;
+  overflow: hidden;
+}
+.sellerInfo ul li p {
+  float: left;
+  width: 25%;
+}
+.sellerInfo ul li p:nth-child(2) {
+  float: left;
+  width: 75%;
+  color: #ffd000;
+}
+
+.sellerInfo input {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 35px;
+  padding: 5px;
+  text-align: center;
+  margin-top: 50px;
+}
+.sellerInfo p.txn {
+  text-align: center;
+  font-size: 35px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.currentState .sendInfo {
+  position: absolute;
+  z-index:1030;
+  width: 100%;
+  left: 0;
+  padding: 30px 0;
+  background: #000 url(../images/s08_subBorder02.png) no-repeat;
+  background-size: 100% 100%;
+  padding: 60px 0;
+  display: none;
+  overflow:hidden;
+}
+
+
+.currentState .sendInfo.on {
+  display: block;
+}
+.currentState .sendInfo h3 {
+  font-size: 46px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 60px;
+}
+.currentState .sendInfo p {
+  text-align: center;
+  font-size: 38px;
+}
+.currentState .sendInfo h4 {
+  text-align: center;
+  font-size: 40px;
+  color: #ffd000;
+}
+.currentState .sendInfo h4.top {
+  margin-top: 30px;
+}
+.currentState .sendInfo h4.bot {
+  margin-bottom: 30px;
+}
+.currentState .sendInfo .popupInfo {
+}
+.currentState .sendInfo .popupInfo h3 {
+}
+.currentState .sendInfo .popupInfo input {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  font-size: 40px;
+  padding: 15px 0;
+  text-align: center;
+}
+.currentState .sendInfo .btns {
+  text-align: center;
+  margin-top: 30px;
+}
+.currentState .sendInfo .btns button {
+  display: inline-block;
+  background: url(../images/staticBtn.png) no-repeat;
+  font-weight: 600;
+  background-size: 100% 100%;
+  padding: 10px 40px;
+  font-size: 30px;
+  color: #fff;
+  margin: 0 5px;
+  margin-bottom: 60px;
+}
+.currentState .sendInfo .btns button:nth-child(2) {
+  background: url(../images/staticBtn2.png) no-repeat;
+  background-size: 100% 100%;
+}

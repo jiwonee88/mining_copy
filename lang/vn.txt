@@ -1,0 +1,346 @@
+#thực đơn
+Để ý
+1 đến 1 yêu cầu
+Đăng xuất
+
+#mục lục
+Gửi vàng
+Gửi đến
+Mã thành viên
+VÀNG để gửi
+Định lượng
+Toàn bộ
+Có sẵn để gửi
+Tối thiểu để gửi
+đóng
+Mua
+vô giá trị
+Sẵn sàng
+Đang chờ đợi
+Yêu cầu
+hoàn thành
+Bán
+Đặt số lượng
+Có sẵn
+Tài sản của tôi
+dự trữ
+vô giá trị
+Chờ bán hàng
+ngày
+Doanh thu ban hang
+Chuyển hoàn thành
+Tổng doanh số hôm nay
+
+#đăng nhập
+Mã thành viên
+mật khẩu
+
+# sắp xếp
+vô giá trị
+Đặt số lượng
+Có sẵn
+Tài sản của tôi
+tài khoản
+
+#myitem
+sở hữu
+Không có sản phẩm bạn có
+
+#buôn bán
+mua
+Sẵn sàng
+Đang chờ đợi
+yêu cầu
+hoàn thành
+giảm giá
+Đặt số lượng
+Có sẵn
+Tài sản của tôi
+Không có sản phẩm quá cảnh
+thận trọng
+Bạn có chắc chắn muốn tiến hành giao dịch? Giao dịch đã hoàn thành không thể chạy lại
+Tiến hành
+Sao chép hoàn thành
+Sao chép thất bại
+TXID chưa được nhập
+Bạn có muốn tiếp tục
+Yêu cầu xác nhận tiền gửi đã được chấp nhận
+Tiểu bang
+Ngày xác nhận
+Giao dịch đã kết thúc
+Người mua đang báo cáo
+Báo cáo của người bán
+Đã được báo cáo
+Vui lòng chỉ nhập nếu bạn đang gửi một tether!
+Nếu txid không được nhập khi mua tether, giao dịch mua không được xử lý.
+Sau khi xác nhận khoản tiền gửi, bạn phải gửi nhân vật cho bên kia
+
+#lịch sử
+Lịch sử vàng
+Chi tiết cửa hàng
+Lịch sử điểm
+ngày
+Các loại
+Định lượng
+Nội dung
+ 
+#tài khoản
+Hồ sơ
+Số điện thoại
+Số tài khoản
+đăng ký
+đăng ký
+Thay đổi mật khẩu đăng nhập
+Thay đổi
+Các biện pháp phòng ngừa
+Nếu bạn không nhập chính xác thông tin ngân hàng của mình, bạn có thể gặp phải những bất lợi như giao dịch bị trì hoãn.
+Thông tin ngân hàng
+tên ngân hàng
+Chủ tài khoản
+Tiết kiệm
+đóng
+Nếu bạn không nhập đúng địa chỉ ví ERC20, bạn sẽ mất khoản tiền gửi của mình.
+Bất kỳ thiệt hại gây ra bởi mục nhập không chính xác là mối quan tâm của bạn.
+Địa chỉ ví
+Địa chỉ ví USDT
+Vui lòng nhập mật khẩu mới
+Nhập mật khẩu
+Nhập mật khẩu xác nhận
+URL giới thiệu
+Nếu bạn chọn Tiền mặt + Tether, có thể thực hiện nhiều kết hợp hơn.
+Có thể có các hạn chế tùy thuộc vào môi trường thanh toán của quốc gia.
+Khớp nối
+Khớp tiền mặt
+Nếu bạn không đặt số lượng giới hạn, sẽ không có trận đấu nào được thực hiện.
+Giới hạn là bằng đô la.
+Đặt số lượng
+Giữ
+Có sẵn
+tiền mặt
+Phương thức thanh toán
+Mua
+<p> Khi mua VÀNG, giảm giá áp dụng tùy thuộc vào sản phẩm được chọn </ p> <p>. </ p>
+Định lượng
+Số lượng thanh toán cuối cùng
+Số tiền thanh toán cuối cùng
+Tài khoản
+Thêm tài khoản
+Đã kích hoạt
+Kích hoạt
+gửi
+Không hoạt động
+Xác nhận giao hàng
+Thông tin tài khoản
+Truyền đầu vào VÀNG
+Chuyển có sẵn
+Truyền tối thiểu
+Xác nhận
+Sao chép hoàn thành
+Sao chép thất bại
+Đã được áp dụng
+Tiền mặt hoặc tether
+Tether
+Đã thêm tài khoản
+Đã được chuyển
+Thay đổi
+tiền mặt
+Tiền mặt hoặc tether
+Tether
+
+# mua vàng
+Quan điểm của tôi
+Mua
+Các biện pháp phòng ngừa
+Khi áp dụng VÀNG, giảm giá được áp dụng theo sản phẩm đã chọn
+tài khoản
+Định lượng
+Số lượng thanh toán cuối cùng
+Số tiền thanh toán cuối cùng
+Tiết kiệm
+đóng
+Sao chép hoàn thành
+Sao chép thất bại
+Nhập Txn Hash.
+Đã đăng ký.
+mua
+Đặt mua sản phẩm
+Định lượng
+giá bán
+Giá KRW
+tiểu bang
+Thông tin ví
+Không xác định
+tên ngân hàng
+Số tài khoản
+Chủ tài khoản
+Dán tên người gửi tài khoản hoặc Txid
+Tên người gửi tài khoản hoặc Hash giao dịch (Số giao dịch chuyển khoản)
+Bạn phải nhập nó. Nếu không được nhập, không thể phê duyệt
+Thông tin nhận
+Xác nhận thanh toán
+
+#transfer vàng
+Quan điểm của tôi
+Gửi
+<p> Đảm bảo kiểm tra ID của thành viên sẽ được gửi. <br> Không thể chuyển VÀNG cho phần thưởng </ p>
+Số tiền có thể chuyển
+ID thành viên sẽ được gửi
+Mã thành viên
+Số vàng được chuyển
+Số lượng truyền
+đóng
+Chuyển hoàn thành
+
+#tham gia
+Đăng ký
+TÔI
+mật khẩu
+Xác nhận mật khẩu
+Mã quốc gia
+Tên
+Số điện thoại
+Xác thực
+Số chứng nhận
+Số chứng nhận đầu vào
+Xác nhận chứng nhận
+Mã giới thiệu
+Xác nhận
+hủy bỏ
+Vui lòng nhập số điện thoại di động của bạn
+Tôi đã gửi số xác minh. \ Xin vui lòng nhập số xác minh bạn nhận được.
+Số xác thực đã được xác nhận
+Vui lòng nhập mật khẩu ít nhất 3 ký tự.
+Mật khẩu không giống nhau
+Vui lòng nhập mã giới thiệu
+Bạn không thể nhập ID của bạn dưới dạng mã giới thiệu.
+Vui lòng nhập mật khẩu chuyển ít nhất 3 ký tự
+
+#trade mua
+Mua
+Đặt hàng số
+ID người mua
+ID người bán
+Người bán
+Người mua
+Số điện thoại người bán
+KRW
+Học phí
+Ngày đặt hàng
+Ngày thanh toán
+Sao chép và dán Hash Txid
+Vui lòng điền vào khi gửi USDT
+Nếu txid không được nhập khi mua bằng USDT, đơn hàng này sẽ không được hoàn thành
+Xem TXID
+Chờ thanh toán
+Giao dịch hoàn tất
+
+#trade bán
+Bán
+Số điện thoại người mua
+Số giao dịch Tether
+Bạn phải gửi nhân vật cho bên kia sau khi kiểm tra số tiền nhận được
+Tên người gửi tiền
+
+#cửa tiệm
+CỬA TIỆM
+Số tiền thanh toán cuối cùng
+Mua
+Bạn có muốn tiến hành mua hàng không
+Tiến hành
+
+#back process-set
+Tài khoản đã bị đóng băng do không tham gia vào giao dịch khớp.
+Vui lòng nhập số tiền đã đặt
+Số lượng cài đặt tối đa
+Không thể cứu
+Vui lòng nhập phương thức thanh toán
+Tài khoản có thể thêm tối đa
+Không thể tạo tài khoản
+Vui lòng nhập tên hàng
+Vui lòng nhập số tài khoản của bạn
+Vui lòng nhập một người gửi tiền
+Số tài khoản này đã được sử dụng
+Số lượng nắm giữ tối thiểu là không đủ.
+Không thể thay đổi
+Vui lòng nhập địa chỉ ví của bạn
+Địa chỉ này đã được sử dụng
+Địa chỉ này không được xác nhận
+Vui lòng nhập mật khẩu
+mất khẩu không hợp lệ
+Thay đổi
+Không thể thay đổi mật khẩu
+
+#back quá trình giao dịch
+Tài khoản đã bị đóng băng do không tham gia vào giao dịch khớp.
+Không tìm thấy thông tin giao dịch
+Giao dịch này đã được hoàn thành.
+Giao dịch này đã bị hủy bỏ.
+Vui lòng nhập tên của người gửi tiền
+Nhập hàm băm giao dịch khi gửi tiền tether và tên của người gửi khi chuyển tài khoản
+Không thể xử lý nó '
+Không tìm thấy thông tin giao dịch
+Đây không phải là một giao dịch mua
+Báo cáo là không thể
+Báo cáo đã được nhận
+Không thể xử lý
+Đây không phải là bán hàng
+Đang được tiến hành
+
+#back chuyển quá trình
+Vui lòng nhập ID để nhận chuyển khoản
+Bạn không thể gửi đến cùng một ID
+Tôi không thể tìm thấy tài khoản với ID đã nhập
+Vui lòng nhập số tiền cần chuyển
+Không đủ số lượng để chuyển
+Số dư sau chuyển ít hơn số tiền kích hoạt tối thiểu
+Số tiền được chuyển phải lớn hơn phí.
+Ít hơn số lượng chuyển tối thiểu
+Mật khẩu chuyển không đúng
+
+#back process-other transfer
+Vui lòng nhập ID thành viên để được gửi
+Tôi không thể gửi nó cho chính mình
+Tôi không thể tìm thấy thành viên để nhận
+Nó chỉ có thể được gửi đến các thành viên phụ.
+Vui lòng nhập số lượng để gửi
+Số lượng không đủ để gửi
+Bạn phải gửi số tiền lớn hơn phí chuyển khoản
+Số tiền chuyển tối thiểu
+
+#back quá trình mua hàng
+Không có tiền gửi
+Không có số lượng mua
+Tài khoản tiền gửi không thể được phát hành
+Không thể đăng ký
+
+#back quá trình tự động hóa
+Tài khoản đã bị đóng băng do không tham gia vào giao dịch khớp.
+Không thể cứu
+Tài khoản này chưa được kích hoạt
+Kiểm tra số lượng có sẵn
+
+#back quá trình tham gia
+Cách tiếp cận sai
+Vui lòng nhập ID của bạn ở đây không có giá trị ID thành viên. Hãy sử dụng đúng cách
+Số xác thực không chính xác
+Xin vui lòng nhập vào một tên hợp lệ.
+Vui lòng nhập mật khẩu
+mất khẩu không hợp lệ
+Mã giới thiệu không tồn tại.
+Bạn không thể nhập ID của mình dưới dạng mã giới thiệu
+
+#lịch sử
+Lịch sử vàng
+Cửa hàng sử dụng
+Lịch sử điểm
+ngày
+Định lượng
+Nội dung
+Không có lịch sử
+Không có lịch sử sử dụng
+
+#
+Đèn chiếu sáng
+Súng Ray
+Máy bay chiến đấu không gian
+Tàu sân bay

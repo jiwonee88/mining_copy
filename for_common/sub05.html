@@ -1,0 +1,351 @@
+<?php
+include_once('./_common.php');
+
+add_stylesheet('<link rel="stylesheet" href="'.G5_THEME_URL.'/css/sub02.css">',1);
+add_stylesheet('<link rel="stylesheet" href="'.G5_THEME_URL.'/css/sub03.css">',1);
+
+include_once('../_head.php');
+?>
+<style>
+    .currentState .leftArea {
+      padding: 20px 40px;
+    }
+
+    .currentState .leftArea p {
+      margin-bottom: 15px;
+    }
+
+    .currentState .bottomArea ul {
+      text-align: center;
+    }
+
+    .currentState .bottomArea li {
+
+      display: inline-block;
+    }
+
+    .currentState .bottomArea button {}
+
+    #s01 .s01_wraper .s01_02 h2 {
+      font-size: 45px;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .currentState .leftArea .thumnail {
+      background: url(<?=G5_THEME_URL?>/images/gold.png);
+      background-size: 100% 100%;
+    }
+
+    .s01_02 .gold button,
+    .s01_02 .point button {
+      display: inline-block;	  
+      background: url(<?=G5_THEME_URL?>/images/staticBtn.dark.png) no-repeat;
+      font-weight: 600;
+      background-size: 100% 100%;
+      padding: 10px 40px;
+      font-size: 30px;
+      color: #fff;
+      margin: 0 5px;
+      vertical-align: middle;
+      margin-top: 14px;
+      margin-left: 20px;
+    }
+
+    .s01_02 .gold p,
+    .s01_02 .point p {
+      text-align: left;
+      padding-left: 12%;
+    }
+
+    .s01_02 {}
+
+    .sendInfo.on {
+      display: block;
+    }
+
+    .sendInfo {
+      position: absolute;
+      z-index: 1000;
+      width: 100%;
+      top: 30%;
+      left: 0;
+      padding: 30px 0;
+      background: #000 url(<?=G5_THEME_URL?>/images/s08_subBorder02.png) no-repeat;
+      background-size: 100% 100%;
+      padding: 60px 0;
+      display: none;
+    }
+
+    .sendInfo h3 {
+      font-size: 50px;
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+
+    .sendInfo .ul {
+      width: 500px;
+      margin: 50px auto;
+      font-size: 40px;
+
+    }
+
+    .sendInfo .ul li {
+      overflow: hidden;
+    }
+
+    .sendInfo .ul li p {
+      float: left;
+    }
+
+    .sendInfo .ul li span {
+      float: right;
+    }
+
+    .sendInfo p {
+      text-align: center;
+      font-size: 40px;
+    }
+
+    .sendInfo h4 {
+      text-align: center;
+      font-size: 40px;
+      color: #ffd000;
+    }
+
+
+    .sendInfo .popupInfo {}
+
+    .sendInfo .popupInfo h3 {}
+
+    .sendInfo .popupInfo input {
+      width: 80%;
+      margin: 0 auto;
+      display: block;
+      font-size: 40px;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    .sendInfo .btns {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .sendInfo .btns button {
+      display: inline-block;
+      background: url(<?=G5_THEME_URL?>/images/staticBtn.png) no-repeat;
+      font-weight: 600;
+      background-size: 100% 100%;
+      padding: 10px 40px;
+      font-size: 30px;
+      color: #fff;
+      margin: 0 5px;
+      margin-bottom: 60px;
+    }
+
+    .sendInfo .btns button:nth-child(2) {
+      background: url(<?=G5_THEME_URL?>/images/staticBtn2.png) no-repeat;
+      background-size: 100% 100%;
+    }
+  </style>
+  
+    <section id="s01">
+      <div class="s01_wraper">
+        <div class="s01_01">
+          <div class="myPage">
+            <div class="profile">
+              <img src="<?=G5_THEME_URL?>/images/p1.png" alt="profile" />
+            </div>
+            <div style="width:100%;padding-left:350px;">
+            <div class="info">
+              <p onclick="location.href='/for_common/sub08.html'"><?=$member[mb_id]?><span><?=lng('님')?></span></p>
+              <button onclick="location.href='/for_common/sub08.html'" class='angle-btn'><i class="fas fa-angle-double-right"></i></button>
+            </div>
+			</div>
+          </div>
+        </div>
+
+        <div class="s01_02">
+          <h2><?=lng('내 보유 포인트')?></h2>
+         
+          <div class="point" onclick="location.href='/for_common/sub05.html'">
+		  <p><is class='enableAmt'><?=number_format2($rpoint['b']['_enable'],1)?></is> <span>Point</span></p>
+         
+          </div>
+        </div>
+        <div class="autoHunting">
+          <h2><?=lng('상점')?></h2>
+          <ul>
+		  <?
+		  foreach($g5['cn_item'] as $k=>$v){
+		  if($k!='a' && $k!='b') continue;
+		  ?>
+            <li>
+              <div class="type">
+                <div class="typeThumnail">
+                 <img src="<?=G5_THEME_URL?>/images/item/<?=$v[img]?>" alt="<?=$v[name_kr]?>" />
+                </div>
+                <div class="middleArea">
+                  <h3><?=lng($v[name_kr])?></h3>
+                  <span><?=$v[days]?><?=lng('일')?></span>
+                  <span class="per"><?=number_format2($v[interest])?>%</span>
+                  <p><?=lng('가격')?> : <?=number_format2(swap_coin($v[price],'u',$g5[cn_shop_coin],$sise))?> <?=$g5[cn_cointype][$g5[cn_shop_coin]]?></p>
+                </div>
+                <div >
+                  <button class='common-btn buy-btn'  data-item='<?=$k?>' data-price='<?=swap_coin($v[price],'u',$g5[cn_shop_coin],$sise)?>' data-itemname="<?=lng($v[name_kr])?>"  ><?=lng('구매하기')?></button>
+                </div>
+              </div>
+            </li>
+        <? }?>   
+          </ul>
+        </div>
+		</div>
+    </section>
+	
+	<div class="sendInfo buyPopup">
+		<form name='buyform' id='buyform' onsubmit='buyform_submit(this);' >
+		<input type='hidden' name='w' value='' >	
+		<input type='hidden' name='mb_id' value='<?=$member[mb_id]?>' >
+		<input type='hidden' name='it_token' value='u' >			
+		<input type='hidden' name='it_set_token' value='<?=$g5[cn_shop_coin]?>' >			
+		<input type='hidden' name='cn_item' value='' >				
+		<input type='hidden' name='cn_price' value='' >			
+
+		<h3 style="margin-top:70px;"><?=lng('구매하기')?></h3>
+
+		<div class="popupInfo">
+			<h3><?=lng('계정')?></h3>
+
+		 <select name='smb_id' class='common-select w-100' >
+		 <option value='<?=$member[mb_id]?>'  ><?=$member[mb_id]?></option>
+		 <?
+		 //서브 계정
+		 $accresult=sql_query("select * from  {$g5['cn_sub_account']} where mb_id='$member[mb_id]' and ac_id != '{$member['mb_id']}' order by ac_id asc");
+		 while($ac=sql_fetch_array($accresult)){?>
+		 <option value='<?=$ac[ac_id]?>'  ><?=$ac[ac_id]?></option>
+		 <? }?>
+		 </select>
+
+		  <h3><?=lng('수량')?></h3>
+		   <select name='qty' class='common-select w-100' >
+				<?
+				for($i=1;$i <=10;$i++){?>
+				 <option value='<?=$i?>'><?=$i?></option>
+				 <? }?>
+				 </select>
+		</div>
+		<div class="ul">
+		  <ul>			
+			<li>
+			  <p><?=lng('최종결제금액')?> :</p>
+			  <span><is id='sum_str'>0</is> <?=$g5[cn_cointype][$g5[cn_shop_coin]]?></span>
+			</li>
+		  </ul>
+		</div>
+		<div class="btns">
+		  <button type='submit' class='' ><?=lng('구매')?></button>
+		  <button type='button' class="exit"><?=lng('닫기')?></button>
+		</div>
+		</form>
+	  </div>
+
+  <script>
+   $(".buy-btn").click(function () {
+		
+		$(".item-name").html($(this).attr('data-itemname'));
+		$("input[name=cn_item]","#buyform").val($(this).attr('data-item'));
+		$("input[name=cn_price]","#buyform").val($(this).attr('data-price'));
+		
+		$(".sendInfo.buyPopup").addClass("on");
+		$(".mask").addClass("on");
+		
+		sum();
+		
+	});
+	$(".sendInfo.buyPopup .exit").click(function () {
+		$(".sendInfo.buyPopup").removeClass("on");
+		$(".mask").removeClass("on");
+	});	
+	
+	
+	
+$(document).ready(function () {
+	
+	
+	sum()
+	$('select[name=item],select[name=qty]','#buyform').change(function () {
+		sum();
+	});
+	
+		
+});
+
+
+function sum(){
+	var price=$('input[name=cn_price]','#buyform').val();	
+	var qty=$('select[name=qty] option:selected','#buyform').val();
+	
+	var sum=parseInt(price) * parseInt(qty);
+	
+	$('#sum_str').html(inputNumberFormat(sum));
+}
+
+//  상품 구매
+
+function buyform_submit(f)
+{
+	
+		
+	event.preventDefault();
+	Swal.fire({
+	  title: '',
+	  text: "<?=lng('구매를 진행하시겠습니까')?>",
+	  icon: 'warning',
+	  showCancelButton: true,
+	  confirmButtonColor: '#3085d6',
+	  cancelButtonColor: '#d33',
+	  confirmButtonText: '<?=lng('진행합니다')?>'
+	}).then((result) => {
+	  if (result.value) {		
+	
+			var formData = $(f).serialize();		
+
+			$.ajax({
+				type: "POST",
+				url: "./coin_purchase_item.php",
+				data:formData,
+				cache: false,
+				async: false,
+				dataType:"json",
+				success: function(data) {
+
+					if(data.result==true){			
+						$(".sendInfo.buyPopup").removeClass("on");
+						$(".mask").removeClass("on");
+						//document.location.href='./page04.html';
+						//document.location.href='./fee.php';Swal.fire({text:'접수되었습니다. 입금 확인후 처리 됩니다.',timer:1000});  
+						
+						$('.enableAmt').html(inputNumberFormat(data.datas['remainAmt'].toFixed(0)));
+						
+						Swal.fire({text:data.message});
+
+					}
+					else Swal.fire({text:data.message});
+				}
+			});		
+	
+	
+	  } //if (result.value) {
+	})
+	
+	return;
+	
+	
+}
+</script>
+  
+<?	
+include_once('../_tail.php');
+?>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>STARWARS</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body style="background: #000 url(images/background.jpg);" oncontextmenu="return false" ondragstart="return false"
+  onselectstart="return false">
+  <iframe src="images/bgm.mp3" allow="autoplay" style="display: none;" id="iframeAudio"></iframe>
+  <span class="shootingStar"></span>
+  <span class="shootingStar pink"></span>
+  <span class="shootingStar blue"></span>
+  <span class="shootingStar yellow"></span>
+  <div id="wrap">
+    <div class="starwars-demo">
+      <img src="images/star.svg" alt="Star" class="star" />
+      <img src="images/wars.svg" alt="Wars" class="wars" />
+      <h2 class="byline" id="byline">BIG Plan coming soon</h2>
+    </div>
+    <div id="log" style="background: #000 url(images/loginBg.jpg) no-repeat;">
+      <div class="imgWraper">
+        <img src="images/star.svg" alt="Star" />
+        <img src="images/wars.svg" alt="Wars" />
+      </div>
+      <input type="text" class="id" />
+      <input type="password" class="id" />
+      <div class="btnWraper">
+        <button onclick="location.href='main.html'" class="login"
+          style="background: url(images/loginBtn.png) no-repeat;"></button>
+        <button onclick="location.href='sub10.html'" class="signUp"
+          style="background: url(images/signUpBtn.png) no-repeat;"></button>
+      </div>
+      <div class="bottomComment">Copyright ⓒ </div>
+    </div>
+  </div>
+  <script src="js/login.js"></script>
+  <script>
+    setTimeout(function () {
+      document.getElementById("log").style.display = "block"
+    }, 5000)
+  </script>
+</body>
+
+</html>

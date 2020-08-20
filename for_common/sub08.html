@@ -1,0 +1,857 @@
+<?php
+include_once('./_common.php');
+
+add_stylesheet('<link rel="stylesheet" href="'.G5_THEME_URL.'/css/sub08.css">',1);
+add_javascript('<script src="'.G5_THEME_URL.'/extend/clipboard.min.js"></script>',1);
+
+include_once('../_head.php');
+?>
+  <style>
+    .sendInfo.buyPopup.buyPopup.on {
+      display: block;
+    }
+
+    .sendInfo.buyPopup {
+      position: absolute;
+      z-index: 99999;
+      width: 100%;
+      top: 30%;
+      left: 0;
+      padding: 30px 0;
+      background: #000 url(<?=G5_THEME_URL?>/images/s08_subBorder02.png) no-repeat;
+      background-size: 100% 100%;
+      padding: 60px 0;
+      display: none;
+    }
+
+    .sendInfo.buyPopup h3 {
+      font-size: 50px;
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+
+    .sendInfo.buyPopup .ul {
+      width: 500px;
+      margin: 50px auto;
+    }
+
+    .sendInfo.buyPopup .ul li {
+      overflow: hidden;
+    }
+
+    .sendInfo.buyPopup .ul li p {
+      float: left;
+    }
+
+    .sendInfo.buyPopup .ul li span {
+      float: right;
+    }
+
+    .sendInfo.buyPopup p {
+      text-align: center;
+      font-size: 40px;
+      float: none;
+      margin-top: 0;
+    }
+
+    .sendInfo.buyPopup h4 {
+      text-align: center;
+      font-size: 40px;
+      color: #ffd000;
+    }
+
+
+    .sendInfo.buyPopup .popupInfo {}
+
+    .sendInfo.buyPopup .popupInfo h3 {}
+
+    .sendInfo.buyPopup .popupInfo input {
+      width: 80%;
+      margin: 0 auto;
+      display: block;
+      font-size: 40px;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    .sendInfo.buyPopup .btns {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .sendInfo.buyPopup .btns button {
+      display: inline-block;
+      background: url(<?=G5_THEME_URL?>/images/staticBtn.png) no-repeat;
+      font-weight: 600;
+      background-size: 100% 100%;
+      padding: 10px 40px;
+      font-size: 30px;
+      color: #fff;
+      margin: 0 5px;
+      margin-bottom: 60px;
+    }
+
+    .sendInfo.buyPopup .btns button:nth-child(2) {
+      background: url(<?=G5_THEME_URL?>/images/staticBtn2.png) no-repeat;
+      background-size: 100% 100%;
+    }
+  </style>
+  
+    <section id="s01">
+      <div class="s01_wraper">
+        <div class="s01_01">
+          <div class="myPage">
+            <div class="profile">
+              <img src="<?=G5_THEME_URL?>/images/p1.png" alt="profile" />
+            </div>
+            <div style="width:100%;padding-left:350px;">
+            <div class="info">
+              <p onclick="location.href='/for_common/sub08.html'"><?=$member[mb_id]?><span><?=lng('님')?></span></p>
+              <button onclick="location.href='/for_common/sub08.html'" class='angle-btn'><i class="fas fa-angle-double-right"></i></button>
+            </div>
+			</div>
+          </div>
+        </div>
+		
+		
+        <div class="stone3">
+          <h3 ><?=lng('프로필')?></h3>
+          <div class="top">
+            <p><?=lng('휴대폰 번호')?></p>
+            <span><?=$member[mb_nation]?'+'.$member[mb_nation]:''?> <?=only_number($member[mb_hp])?></span>
+          </div>
+          <div class="bottom mb-2">
+            <p><?=lng('계좌번호')?></p>			
+            <span class='mb_bank' ><?=$member[mb_bank]?$member[mb_bank]:'-'?> <?=$member[mb_bank_num]?$member[mb_bank_num]:'-'?> <?=$member[mb_bank_user]?$member[mb_bank_user]:'-'?></span>
+            
+          </div>
+          <button class="static bank-add"><?=lng('계좌정보 등록')?></button>
+		  
+		  <div class="bottom  mb-2">
+            <p>USDT</p>			
+            <span class='mb_wallet_addr_u text-narrow2' ><?=$member[mb_wallet_addr_u]?$member[mb_wallet_addr_u]:'-'?></span>           
+          </div>
+          <button class="static tether-add"><?=lng('주소등록')?></button>
+		  
+		  <div class="bottom  mb-2">
+            <p><?=lng('로그인 암호 변경')?></p>			
+          </div>
+          <button class="static updatePass"><?=lng('암호변경')?></button>
+		  
+		  
+          <div class="sendInfo setPopup">
+		  	<form name='form5' onsubmit='form5_submit(this);' >
+				<input type='hidden' name='w' value='u5' >	
+            <h3><?=lng('주의 사항')?></h3>
+            <p class='px-5 mb-0 text-left'><?=lng('은행정보를 정확하게 입력하지 않으면 거래가 지연되는 등의 불이익을 당하실 수도 있습니다.')?></p>
+            <div class="popupInfo">             
+				<h3><?=lng('은행정보')?></h3>
+				<input  type="text" name='mb_bank' value="<?=$member[mb_bank]?>" class='common-input' placeholder='<?=lng('은행명')?>'>
+
+				<h3><?=lng('계좌번호')?></h3>
+				<input  type="text" name='mb_bank_num' value="<?=$member[mb_bank_num]?>" class='common-input' placeholder='<?=lng('계좌번호')?>'>
+
+				<h3><?=lng('예금주')?></h3>
+				<input  type="text" name='mb_bank_user' value="<?=$member[mb_bank_user]?>" class='common-input ' placeholder='<?=lng('예금주')?>'>
+
+            </div>
+
+            <div class="btns">
+              <button type='submit' ><?=lng('저장')?></button>
+              <button type='button' class="exit"><?=lng('닫기')?></button>
+            </div>
+			</form>
+          </div>
+		  
+		  <div class="sendInfo tetherPopup">
+		  	<form name='form7' onsubmit='form7_submit(this);' >
+				<input type='hidden' name='w' value='u7' >	
+            <h3><?=lng('주의 사항')?></h3>
+            <p class='px-5 mb-0 text-left'><?=lng('정확한 ERC20 지갑 주소를 입력하지 않으시면 입금액을 분실하게 됩니다.')?> <?=lng('ERC20 형식 지갑주소 오입력으로 발생한 모든 피해는 본인의 책임입니다.')?></p>           
+            <div class="popupInfo">             
+				<h3><?=lng('지갑주소')?></h3>
+				<input  type="text" name='mb_wallet_addr_u' value="<?=$member[mb_wallet_addr_u]?>" class='common-input' placeholder='<?=lng('USDT 지갑주소')?>'>
+
+            </div>
+
+            <div class="btns">
+              <button type='submit' ><?=lng('저장')?></button>
+              <button type='button'  class="exit"><?=lng('닫기')?></button>
+            </div>
+			</form>
+          </div>
+		  
+		  
+		  <div class="sendInfo passPopup">
+		  	<form name='form8' onsubmit='form8_submit(this);' >
+				<input type='hidden' name='w' value='u8' >	
+            <h3><?=lng('로그인 암호 변경')?></h3>
+            <p class='px-5 mb-0 text-center'><?=lng('새로운 암호를 입력하세요')?></p>           
+            <div class="popupInfo">             
+				<h3><?=lng('암호입력')?></h3>
+				<input  type="password" name='mb_password' class='common-input' >
+					
+				<h3><?=lng('확인암호입력')?></h3>
+				<input  type="password" name='mb_password_re' class='common-input' >
+	
+            </div>
+
+            <div class="btns">
+              <button type='submit' ><?=lng('저장')?></button>
+              <button type='button'  class="exit"><?=lng('닫기')?></button>
+            </div>
+			</form>
+          </div>
+		  
+          <div class="bottom mb-4">
+            <p><?=lng('레퍼럴 URL')?></p>
+            <span class="btn-clipboard" data-clipboard-text="<?=G5_URL?>/?refid=<?=$member[mb_id]?>" ><?=G5_URL?>/?refid=<?=$member[mb_id]?> <i class="far fa-copy"></i></span>
+          </div>
+		  
+        </div>
+		
+		
+        <div class="s01_02 s08">
+			
+          <div class="sendInfo pointPopup">
+		  	<form name='form2' onsubmit='form2_submit(this);' >
+				<input type='hidden' name='w' value='u2' >	
+            <h3><?=lng('주의 사항')?></h3>
+            <p class='px-5 mb-0 text-left' ><?=lng('현금 + 테더를 선택하시면 더 많은 매칭이 이루어 질 수 있습니다.')?></p>
+            <h4><?=lng('국가의 결제 환경에 따라 제한이 있을 수 있습니다.')?></h4>
+            <div class="radioBtn">
+
+              <label>
+                <input type="radio"   name="mb_trade_paytype"  id="mb_trade_paytype1" value='usdt' <?=$member[mb_trade_paytype]=='usdt' ?'checked="checked"':''?>> <?=lng('테더 매칭')?>
+			</label>
+              <label>
+                <input type="radio" name="mb_trade_paytype" id="mb_trade_paytype2" value='cash' <?=$member[mb_trade_paytype]=='cash' ?'checked="checked"':''?> > <?=lng('현금 매칭')?>
+              </label>
+            </div>
+
+            <div class="btns">
+              <button type='submit' ><?=lng('저장')?></button>
+              <button type='button'  class="exit"><?=lng('닫기')?></button>
+            </div>
+			</form>
+          </div>
+		
+          <div class="sendInfo goldPopup">
+		  	<form name='form1' onsubmit='form1_submit(this);' >
+				<input type='hidden' name='w' value='u1' >	
+            <h3><?=lng('주의 사항')?></h3>
+            <p class='px-5 mb-0 text-left' ><?=lng('한도 금액을 설정하지 않으면  매칭이 이루어 지지 않습니다.')?></p>
+            <h4><?=lng('한도금액은 달러 기준입니다.')?></h4>
+            <div class="popupInfo">
+              <ul>
+                <li>
+                  <p><?=lng('설정금액')?></p>
+                  <div>
+                    <input type="text" name='mb_trade_amtlmt' class='number-comma' value='<?=number_format2($member[mb_trade_amtlmt])?>' >
+                  </div>
+                </li>
+				
+                <li>
+                  <p><?=lng('보유금액')?></p>
+                  <span class=" mb_trade_amtenable"><?=number_format2($isum[tot][price])?></span>
+                </li>
+               
+				
+              </ul>
+
+            </div>
+
+            <div class="btns">
+              <button type='submit' ><?=lng('저장')?></button>
+              <button  type='button' class="exit"><?=lng('닫기')?></button>
+            </div>
+			</form>
+          </div>
+
+          <div class="gold">
+            <p><is class="mb_trade_amtlmt">$ <?=number_format2($member[mb_trade_amtlmt])?></is><span style="display: block;"><?=lng('설정금액')?></span></p>
+            <div class="set">
+              <img src="<?=G5_THEME_URL?>/images/settings.png" alt="">
+            </div>
+
+          </div>
+          <!--div class="point">
+            <p><span style="margin-right:20px;"><?=lng('가용금액')?></span>
+			<is class=" mb_trade_amtenable"><?=number_format2($isum[tot][price]>$member[mb_trade_amtlmt]?0:$member[mb_trade_amtlmt]-$isum[tot][price])?></is>
+			</p>
+          </div-->
+          <div class="point">
+            <p><span style="margin-right:20px;"><?=lng('보유금액')?></span><?=number_format2($isum[tot][price])?></p>
+            <button></button>
+          </div>
+		  <?
+		 //매도액
+		$stemp=sql_fetch("select sum(if(ct_validdate <= date(now()),ct_sell_price,0)) ct_sell_price,sum(if(ct_validdate > date(now()),ct_buy_price,0)) ct_buy_price  from {$g5['cn_item_cart']} where is_soled != '1' and mb_id='$member[mb_id]'");
+		?>
+		  <div class="point">
+            <p><span style="margin-right:20px;"><?=lng('오늘 매도액')?></span><?=number_format2($stemp[ct_sell_price])?></p>
+            <button></button>
+          </div>
+		  
+		
+          <div class="point">
+            <p>
+			 <is class="mb_trade_paytype">					
+			<? if($member[mb_trade_paytype]=='cash') echo lng('현금');
+			else if($member[mb_trade_paytype]=='both') echo lng('현금 또는 테더');
+			else if($member[mb_trade_paytype]=='usdt') echo lng('테더');
+			?>
+			</is>
+			<span style="display: block;"><?=lng('결제방법')?></span></p>
+            <div class="set">
+              <img src="<?=G5_THEME_URL?>/images/settings.png" alt="">
+            </div>
+
+          </div>
+        </div>
+		
+        <div class="sub08">
+          <div class="stone1 cf">
+            <div class="thumnail"></div>
+            <p><?=number_format2($rpoint['i']['_enable'])?> 
+              <button class="buyBtn" onclick="location.href='/for_common/sub09.html'"><?=lng('구매')?></button>
+            </p>
+            <div class="sendInfo buyPopup">
+              <h3 style="margin-top:70px;"><?=lng('주의 사항')?></h3>
+              <?=lng('<p>GOLD 구매시 선택 상품에 따라</p><p>할인이 적용 됩니다.</p>')?>
+              <div class="popupInfo">
+                <h3>GOLD</h3>
+                <input type="text">
+                <h3><?=lng('수량')?></h3>
+                <input type="text">
+              </div>
+              <div class="ul">
+                <ul>
+                  <li>
+                    <p><?=lng('최종지급수량')?> :</p>
+                    <span>1,000개</span>
+                  </li>
+                  <li>
+                    <p><?=lng('최종결제금액')?> :</p>
+                    <span>100 $</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="btns">
+                <button type='submit' ><?=lng('저장')?></button>
+                <button  type='button' class="exit"><?=lng('닫기')?></button>
+              </div>
+            </div>
+          </div>
+		 <?
+			//서브 계정 없으면 추가
+			$subadd=set_basic_account($member);
+			
+			//서브 계정
+			$accresult=sql_query("select * from  {$g5['cn_sub_account']} where mb_id='$member[mb_id]'  order by ac_id asc",1);
+			?> 
+          <div class="stone2">
+            <div class="myId">
+			<form name='form2' onsubmit='form3_submit(this);' >
+			<input type='hidden' name='w' value='u3' >		
+              <?=lng('보유계정')?> <is class='account-cnt'><?=sql_num_rows($accresult)-1?>/<?=$cset[max_account_lmt]?></is>
+              <button type='submit' class="static"><?=lng('계정추가')?></button>
+			  </form>
+            </div>
+		<form name='formaccount' id='formaccount' onsubmit='formaccount_submit(this);' >
+			<input type='hidden' name='w' value='u6' >	
+			<input type='hidden' name='mb_id' value='' >
+			<input type='hidden' name='ac_id' value='' >
+				
+            <ul  id='subAccount'>
+			
+			<?
+			while($ac=sql_fetch_array($accresult)){?>
+              <li class="p01">
+                <div class="top">
+                  <p><?=$ac[ac_id]?></p>
+                  <span><?=$ac[ac_active]?lng('활성화됨'):lng('비활성화')?></span>
+                  <input type="checkbox" name='active_sub[]' id="acc-<?=$ac[ac_no]?>"  <?=$ac[ac_active]?' checked disabled ':''?> value="<?=$ac[ac_id]?>" >
+                  <button  type='button' class="idDetailActive sub-id" data-id="<?=$ac[ac_id]?>"  data-no="<?=$ac[ac_no]?>" <?=$ac[ac_active]?'  1disabled ':''?>  ><?=$ac[ac_active]?lng('활성화'):'&gt;&gt;'?></button>
+                </div>
+				
+                <div class="bottom">
+                  <div class="stones">
+                    <div class="thumnail"></div>
+                    <p class='gold-enable-<?=$ac[ac_id]!=$ac[mb_id]?$ac[ac_no]:$ac[ac_id]?>' ><?=number_format2($ac['ac_point_i'])?></p>
+                  </div>
+				  
+				  <?
+				if($ac[ac_id]!=$ac[mb_id]){?>
+				<div class="btns">
+					<button type='button'  class='btn-send-gold'  data-id="<?=$ac[ac_id]?>" data-no="<?=$ac[ac_no]?>" ><?=lng('전송')?></button>
+				</div>
+				<? }?>
+				  
+				  
+                </div>
+              </li>
+			  
+			  <? }?>
+			  
+            </ul>
+			</form>
+			
+			<div class="sendInfo sendGold">
+			<form name='form4' id='form4' onsubmit='form4_submit(this);' >
+				<input type='hidden' name='w' value='u' >	
+				<input type='hidden' name='mb_id' value='<?=$member[mb_id]?>' >
+				<input type='hidden' name='stmb_id' value='' >
+				<input type='hidden' name='stmb_no' value='' >
+				<input type='hidden' name='tr_token' value='i' >
+				<input type='hidden' name='tr_fee_token' value='i' >	
+			  <h3><?=lng('전송 확인')?></h3>
+			  <p><?=lng('계정 정보')?> : <is class='stmb_id' >...</is></p>
+			  <p><?=lng('전송 GOLD 입력')?></p>
+			  <input type="text" name='tr_amt' class='comma-input'>
+			  <span><?=lng('전송 가능')?> : <is class='gold-enable-<?=$member[mb_id]?>' ><?=number_format2($mrpoint[i]['_enable'])?></is> GOLD</span>
+			  <span><?=lng('최소 전송')?> : <?=number_format2($cset[min_trans_i])?> GOLD</span>
+			  <div class="btns">
+				<button type='submit' ><?=lng('확인')?></button>
+				<button  type='button' class="exit"><?=lng('닫기')?></button>
+			  </div>
+			  </form>
+			</div>
+
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <div class="mask"></div>
+
+<script>
+    
+    $(document).ready(function () {
+		
+	  //공통 닫기 버튼
+	  $(".btns button.exit").click(function () {
+        $(this).closest('.sendInfo').removeClass("on");
+        $(".mask").removeClass("on");
+      });
+	  
+
+      $(".sub08 .stone2 ul li.p01 .bottom .btns button").click(function () {
+        $(".sub08 .stone2 ul li.p01 .sendInfo").addClass("on");
+        $(".mask").addClass("on");
+      });
+
+
+      $(".sub08 .stone2 ul li.p02 .bottom .btns button").click(function () {
+        $(".sub08 .stone2 ul li.p02 .sendInfo").addClass("on");
+        $(".mask").addClass("on");
+      });
+
+
+      $(".sub08 .stone2 ul li.p03 .bottom .btns button").click(function () {
+        $(".sub08 .stone2 ul li.p03 .sendInfo").addClass("on");
+        $(".mask").addClass("on");
+      });
+
+      $(".s01_02 .point .set").click(function () {
+        $(".sendInfo.pointPopup").addClass("on");
+        $(".mask").addClass("on");
+      });
+
+
+      $(".s01_02 .gold .set").click(function () {
+        $(".sendInfo.goldPopup").addClass("on");
+        $(".mask").addClass("on");
+      });
+	 
+	 //입금정보 팝업
+      $(".stone3 button.bank-add").click(function () {
+        $(".stone3 .setPopup").addClass("on");
+        $(".mask").addClass("on");
+      });
+	  //테더주소 팝업
+	  $(".stone3 button.tether-add").click(function () {
+        $(".stone3 .tetherPopup").addClass("on");
+        $(".mask").addClass("on");
+      });
+	  
+	  //로그인 팝업
+	  $(".stone3 button.updatePass").click(function () {
+        $(".stone3 .passPopup").addClass("on");
+        $(".mask").addClass("on");
+      });
+	  
+	
+	//골드 전송
+	  $('#subAccount  .btn-send-gold').click(function () {
+		var ac_id=$(this).attr('data-id');
+		var ac_no=$(this).attr('data-no');
+
+		 $('.stmb_id').html(ac_id);
+		 $('input[name=stmb_id]','#form4').val(ac_id);
+		 $('input[name=stmb_no]','#form4').val(ac_no);
+		 
+		$('.sendGold').addClass('on').center();
+	});
+	
+	//계정 활성
+	$('.idDetailActive.sub-id').click(function () {
+		var ac_id=$(this).attr('data-id');	
+		$('input[name=ac_id]','#formaccount').val(ac_id);
+		formaccount_submit();
+	});
+			
+	
+	$("input[name='active_sub[]']").change(function () {
+		var ac_id=$(this).attr('data-id');	
+		$('input[name=ac_id]','#formaccount').val(ac_id);
+		formaccount_submit();
+	});
+		
+	var clipboard = new ClipboardJS('.btn-clipboard');
+	clipboard.on('success', function(e) {
+		Swal.fire({html:'<?=lng('복사완료')?>',timer:1000});
+
+		var selection = window.getSelection();
+		selection.removeAllRanges();
+	});
+
+	clipboard.on('error', function(e) {
+		Swal.fire({html:'<?=lng('복사실패')?>',timer:1000});
+	});
+
+});
+
+
+
+
+	// 한도금액 설정
+	function form1_submit(f)
+	{
+
+		event.preventDefault();
+		var formData = $(f).serialize();	
+
+		$.ajax({
+			type: "POST",
+			url: "./idDetail.update.php",
+			data:formData,
+			cache: false,
+			async: false,
+			dataType:"json",
+			success: function(data) {
+
+				if(data.result==true){					
+
+
+					$('.mb_trade_amtlmt').html('$'+inputNumberFormat(data.datas['mb_trade_amtlmt']));
+					$('.mb_trade_amtlenable').html('$'+inputNumberFormat(data.datas['mb_trade_amtenable']));
+					$('.popup.i01').removeClass('on');
+					Swal.fire({html:'<?=lng('적용되었습니다')?>',timer:1000});
+				}
+				else Swal.fire({html:data.message});          
+			}
+		});	
+		$(".mask").removeClass("on");
+		return;
+	}
+		
+		
+		
+	//  결제방법선택
+	function form2_submit(f)
+	{
+
+		event.preventDefault();
+		var formData = $(f).serialize();	
+
+		$.ajax({
+			type: "POST",
+			url: "./idDetail.update.php",
+			data:formData,
+			cache: false,
+			async: false,
+			dataType:"json",
+			success: function(data) {
+
+				if(data.result==true){					
+					
+					var pt=	data.datas['mb_trade_paytype'];
+					var ptstr='';
+					if(pt=='both') ptstr='<?=lng('현금 또는 테더')?>';
+					else if(pt=='cash') ptstr='<?=lng('현금')?>';
+					else if(pt=='usdt') ptstr='<?=lng('테더')?>';
+					
+					$('.mb_trade_paytype').html(ptstr);
+					$('.pointPopup').removeClass('on');
+					Swal.fire({html:'<?=lng('적용되었습니다')?>',timer:1000});
+				}
+				else Swal.fire({html:data.message});          
+			}
+		});		
+		$(".mask").removeClass("on");
+		return;
+	}
+	
+	
+	//  계정추가
+	function form3_submit(f)
+	{
+				
+		event.preventDefault();		
+			
+		var formData = $(f).serialize();	
+
+		$.ajax({
+			type: "POST",
+			url: "./idDetail.update.php",
+			data:formData,
+			cache: false,
+			async: false,
+			dataType:"json",
+			success: function(data) {
+
+				if(data.result==true){					
+					
+					var htmls='<li class="p01">'
+					+'	<div class="top">'
+					+'		<p>'+data.datas['ac_id']+'</p>'
+					+'		<span class="is-active-'+ data.datas['ac_no'] +'"><?=lng('비활성화')?></span>'
+					+'		<input type="checkbox" name="active_sub[]" id="acc-'+ data.datas['ac_no'] +'"   value="'+ data.datas['ac_id'] +'" >'
+					+'		<button type="button" class="idDetailActive sub-id" data-id="'+data.datas['ac_id']+'"  data-no="'+data.datas['ac_no']+'">&gt;&gt;</button>'
+					+'		</div>'
+
+					+'		<div class="bottom">'
+					+'		<div class="stones">'
+					+'		<div class="thumnail"></div>'
+					+'		<p class="gold-enable-'+ data.datas['ac_no'] +'" >0</p>'
+					+'		</div>'
+
+					+'		<div class="btns">'
+					+'		<button type="button"  class="btn-send-gold" data-id="'+ data.datas['ac_id'] +'" data-no="'+ data.datas['ac_no'] +'"  ><?=lng('전송')?></span>'
+					+'		</div>'
+					+'	</div>'
+					+'</li>';
+
+
+					//alert(htmls);
+					//console.log(htmls);
+					
+					$('#subAccount').append(htmls);
+					
+					 $('#subAccount li:last-child .btn-send-gold').click(function () {
+						var ac_id=$(this).attr('data-id');
+						var ac_no=$(this).attr('data-no');
+
+						 $('.stmb_id').html(ac_id);
+						 $('input[name=stmb_id]','#form4').val(ac_id);
+						 $('input[name=stmb_no]','#form4').val(ac_no);
+						$('.sendGold').addClass('on').center();;
+					});			
+					
+					$('#subAccount li:last-child .idDetailActive.sub-id').click(function () {
+						var ac_id=$(this).attr('data-id');	
+						
+						$('input[name=ac_id]','#formaccount').val(ac_id);
+						$('input[name=mb_id]','#formaccount').val('');
+						formaccount_submit();
+					});
+
+
+					//console.log(htmls);
+					//$('.popup.i03').removeClass('on');
+					$('.account-cnt').html(data.datas2['accountCnt'] + '/<?=$cset[max_account_lmt]?>');
+					Swal.fire({html:'<?=lng('계정이 추가되었습니다')?>',timer:1000});
+				}
+				else Swal.fire({html:data.message});          
+			}
+		});		
+		$(".mask").removeClass("on");
+		return;
+	}
+	
+	//  계정 활성
+	function formaccount_submit()
+	{
+
+		var ac_id=$('input[name=ac_id]','#formaccount').val();
+		
+		var formData = $('#formaccount').serialize();	
+
+		$.ajax({
+			type: "POST",
+			url: "./idDetail.update.php",
+			data:formData,
+			cache: false,
+			async: true,
+			dataType:"json",
+			success: function(data) {
+
+				if(data.result==true){													
+					
+					if(ac_id){
+						if(data.datas['ac_active']=='1'){
+							$('.is-active-'+data.datas['ac_no']).html('<?=lng('활성화됨')?>');
+							$('button.idDetailActive[data-id="'+data.datas['ac_id']+'"]').html('<?=lng('활성화')?>');			
+							$('input#acc-'+data.datas['ac_no']).prop('checked',true);						
+						}										
+					}					
+					Swal.fire({html:'<?=lng('적용되었습니다')?>',timer:1000});   
+				}
+				else{
+					document.formaccount.reset();
+					Swal.fire({html:data.message});   
+				}
+			}
+		});	
+		$(".mask").removeClass("on");
+		return;
+	}	
+	
+	
+	//  골드 이체
+	function form4_submit(f)
+	{
+		event.preventDefault();
+		var formData = $(f).serialize();	
+		var mb_id=$('input[name=mb_id]','#form4').val();
+		var stmb_id=$('input[name=stmb_id]','#form4').val();
+		var stmb_no=$('input[name=stmb_no]','#form4').val();
+		
+		
+		$.ajax({
+			type: "POST",
+			url: "./coin_transfer_update.php",
+			data:formData,
+			cache: false,
+			async: false,
+			dataType:"json",
+			success: function(data) {
+
+				if(data.result==true){				
+
+					var mb_bank=	data.datas['mb_bank'];
+					console.log($('.gold-enable-' + stmb_id))
+					$('.gold-enable').html(inputNumberFormat(data.datas['i']['_enable']));
+					$('.gold-enable-' + mb_id).html(inputNumberFormat(data.datas2['i']['_enable']));
+					$('.gold-enable-' + stmb_no).html(inputNumberFormat(data.datas3['i']['_enable']));
+					
+					
+					
+					$('.sendGold').removeClass('on');
+					Swal.fire({html:'<?=lng('이체 되었습니다')?>',timer:1000});   
+				}
+				else Swal.fire({html:data.message});          
+			}
+		});	
+		$(".mask").removeClass("on");
+		return;
+	}
+	
+	//  입금은행변경
+	function form5_submit(f)
+	{
+
+		event.preventDefault();
+		var formData = $(f).serialize();	
+
+		$.ajax({
+			type: "POST",
+			url: "./idDetail.update.php",
+			data:formData,
+			cache: false,
+			async: false,
+			dataType:"json",
+			success: function(data) {
+
+				if(data.result==true){					
+
+					var mb_bank=	data.datas['mb_bank'];
+					var mb_bank_num=	data.datas['mb_bank_num'];
+					var mb_bank_user=	data.datas['mb_bank_user'];
+					
+					$('.mb_bank').html(mb_bank +' '+mb_bank_num +' '+mb_bank_user);
+					//$('.mb_bank_num').html(mb_bank_num);
+					//$('.mb_bank_use').html(mb_bank_user);
+					
+					$('.setPopup').removeClass('on');
+					Swal.fire({html:'<?=lng('적용되었습니다')?>',timer:1000});   
+				}
+				else Swal.fire({html:data.message});          
+			}
+		});	
+		$(".mask").removeClass("on");
+		return;
+	}
+	
+	//  테더지갑주소변경
+	function form7_submit(f)
+	{
+
+		event.preventDefault();
+		var formData = $(f).serialize();	
+
+		$.ajax({
+			type: "POST",
+			url: "./idDetail.update.php",
+			data:formData,
+			cache: false,
+			async: false,
+			dataType:"json",
+			success: function(data) {
+
+				if(data.result==true){					
+
+					var mb_wallet_addr_u=	data.datas['mb_wallet_addr_u'];
+					
+					$('.mb_wallet_addr_u').html(mb_wallet_addr_u);
+					
+					$('.tetherPopup').removeClass('on');
+					Swal.fire({html:'<?=lng('적용되었습니다')?>',timer:1000});   
+				}
+				else Swal.fire({html:data.message});          
+			}
+		});		
+		$(".mask").removeClass("on");
+		return;
+	}
+		
+	
+	//  암호변경
+	function form8_submit(f)
+	{
+		event.preventDefault();
+		var formData = $(f).serialize();	
+
+		$.ajax({
+			type: "POST",
+			url: "./idDetail.update.php",
+			data:formData,
+			cache: false,
+			async: false,
+			dataType:"json",
+			success: function(data) {
+
+				if(data.result==true){					
+
+					document.form8.reset();
+					
+					$(".stone3 .passPopup").removeClass("on");
+					$(".mask").removeClass("on");
+					
+					Swal.fire({html:'<?=lng('변경되었습니다')?>',timer:1000});   
+				}
+				else Swal.fire({html:data.message});       
+			}
+		});		
+		return;
+	}
+	
+	
+
+  </script>
+<?	
+include_once('../_tail.php');
+?>

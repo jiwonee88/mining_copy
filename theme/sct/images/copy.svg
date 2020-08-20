@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18">
+    <defs>
+        <style>
+            .prefix__cls-1{fill:#fff}.prefix__cls-1,.prefix__cls-2{stroke:#9d7417}.prefix__cls-2,.prefix__cls-4{fill:none}.prefix__cls-3{stroke:none}
+        </style>
+    </defs>
+    <g id="prefix__Group_1694" data-name="Group 1694" transform="translate(-308 -738)">
+        <g id="prefix__Rectangle_413" class="prefix__cls-1" data-name="Rectangle 413">
+            <path d="M0 0H14V14H0z" class="prefix__cls-3" transform="translate(311 742)"/>
+            <path d="M0.5 0.5H13.5V13.5H0.5z" class="prefix__cls-4" transform="translate(311 742)"/>
+        </g>
+        <g id="prefix__Rectangle_414" class="prefix__cls-1" data-name="Rectangle 414">
+            <path d="M0 0H14V15H0z" class="prefix__cls-3" transform="translate(308 738)"/>
+            <path d="M0.5 0.5H13.5V14.5H0.5z" class="prefix__cls-4" transform="translate(308 738)"/>
+        </g>
+        <path id="prefix__Line_187" d="M0 0L9 0" class="prefix__cls-2" data-name="Line 187" transform="translate(310.5 742.5)"/>
+        <path id="prefix__Line_188" d="M0 0L9 0" class="prefix__cls-2" data-name="Line 188" transform="translate(310.5 745.5)"/>
+    </g>
+</svg>
