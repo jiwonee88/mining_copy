@@ -326,7 +326,12 @@ function set_purchase_item($data,$status,$exec=0){
 			ct_validdate='$validdate',
 
 			ct_wdate=now(),
-			ct_rdate=now()
+			ct_rdate=now(),
+			
+			ct_meta_owner='{$mb[mb_id]}',
+			ct_meta_price='$item_data[price]',
+			ct_meta_sdate=now(),
+			ct_meta_memo='상품직접구매'
 			";
 
 			$item_result=sql_query($sql);			
@@ -456,9 +461,15 @@ function get_itemcode(){
 	return $code;
 }
 */
-function get_itemcode($cn_item,$ct_id){
+function get_itemcode($cn_item,$ct_id,$parent=''){
 	global $g5,$cset;		
-	return strtoupper(substr($cn_item,0,1)).sprintf("%08d",$ct_id);
+	
+	if($parent){
+		$arr=explode("-",$parent);
+		$parent_code=sprintf("%02d",$arr[1]*1);
+	}else $parent_code=0;
+	
+	return strtoupper(substr($cn_item,0,1))."-".sprintf("%02d",$parent_code)."-".sprintf("%08d",$ct_id);
 }
 
 //거래 코드 생성
@@ -1005,7 +1016,7 @@ function set_trade_stat($tdata,$stats){
 				$ct_class=1;
 				
 				$sql="insert into  {$g5['cn_item_cart']} set
-					set 
+				
 					tr_code='$tdata[tr_code]',
 					cn_item='$tdata[cn_item]',
 					mb_id='".addslashes($tdata[mb_id])."',
@@ -1025,14 +1036,20 @@ function set_trade_stat($tdata,$stats){
 
 					tr_active='$cdata[tr_active]',
 					
-					ct_rdate=now()
+					ct_rdate=now(),
+					
+					ct_meta_owner='".addslashes($tdata[mb_id])."',
+					ct_meta_price='$tdata[tr_price_org]',
+					ct_meta_sdate=now(),
+					ct_meta_memo='분할판매 생성'
+
 					";
 
 					//echo $sql;
 					$result= sql_query($sql);	
 					
 					$ct_id=sql_insert_id();
-					$code= get_itemcode($tdata[cn_item],$ct_id);	
+					$code= get_itemcode($tdata[cn_item],$ct_id,$cdata[code]);	
 
 					// 코드 업데이트
 					sql_query("update {$g5['cn_item_cart']} set code='$code' where ct_id='$ct_id' " );			
@@ -1048,7 +1065,7 @@ function set_trade_stat($tdata,$stats){
 				
 				//소유권 이전
 				$sql="update {$g5['cn_item_cart']} set
-					set 
+				
 					tr_code='$tdata[tr_code]',					
 					mb_id='".addslashes($tdata[mb_id])."',
 					smb_id='".addslashes($tdata[smb_id])."',
@@ -1128,8 +1145,12 @@ function set_trade_stat($tdata,$stats){
 				ct_validdate='$ct_validdate',
 
 				ct_wdate='$tdata[tr_wdate]',
-				ct_rdate=now()
+				ct_rdate=now(),
 				
+				ct_meta_owner='".addslashes($tdata[mb_id])."',
+				ct_meta_price='$tdata[tr_price_org]',
+				ct_meta_sdate=now(),
+				ct_meta_memo='회사물량 매칭'
 
 				";
 

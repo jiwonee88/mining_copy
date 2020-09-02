@@ -8,7 +8,7 @@ $menu['menu200'] = array (
 	array('200150', '임시회원', G5_ADMIN_URL.'/member_list_ready.php', 'mb_list'),
 	array('200130', '회원탈퇴/삭제', G5_ADMIN_URL.'/member_list_leave.php', 'mb_list'),
 	
-	array('200190', 'VIP회원', G5_ADMIN_URL.'/member_list_vip.php', 'mb_list'),
+	//array('200190', 'VIP회원', G5_ADMIN_URL.'/member_list_vip.php', 'mb_list'),
 	
 	array('200400', '계정관리', G5_ADMIN_URL.'/member_avatar_list.php', 'member'),		
 	

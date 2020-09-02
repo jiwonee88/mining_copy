@@ -42,9 +42,9 @@ echo $config['cf_add_meta'].PHP_EOL;
 
 ?>
 <title><?php echo $g5_head_title; ?></title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="<?php echo G5_THEME_URL ?>/extend/bootstrap.min.css"  crossorigin="anonymous">
+<link rel="stylesheet" href="<?php echo G5_THEME_URL ?>/extend/all.css" crossorigin="anonymous">
+<link rel="stylesheet" href="<?php echo G5_THEME_URL ?>/extend/jquery-ui.css">
 <link rel="stylesheet" href="<?php echo G5_THEME_URL ?>/css/ornament.css?ver=<?php echo G5_CSS_VER; ?>"  crossorigin="anonymous">
 	
 <link rel="stylesheet" href="<?php echo G5_THEME_URL ?>/css/common.css?ver=<?php echo G5_CSS_VER; ?>"  crossorigin="anonymous">
@@ -63,12 +63,14 @@ var g5_cookie_domain = "<?php echo G5_COOKIE_DOMAIN ?>";
 </script>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" ></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="<?php echo G5_THEME_URL ?>/extend/jquery-1.12.4.min.js" ></script>
+<script src="<?php echo G5_THEME_URL ?>/extend/jquery-ui.js"></script>
+<script src="<?php echo G5_THEME_URL ?>/extend/popper.min.js"  crossorigin="anonymous"></script>
+<script src="<?php echo G5_THEME_URL ?>/extend/bootstrap.min.js"  crossorigin="anonymous"></script>
 
 <script src="<?=G5_THEME_URL?>/extend/sweetalert2.all.min.js"></script>
+<script src="<?=G5_THEME_URL?>/extend/promis_polyfil.js"></script>
+
 <link rel="stylesheet" href="<?=G5_THEME_URL?>/extend/sweetalert2.css?ver=<?php echo G5_JS_VER; ?>">
 
 <script src="<?=G5_THEME_URL?>/extend/jquery.modal.min.js"></script>

@@ -198,6 +198,7 @@ if($sub_menu == "200130"){ ?>
         </th>
 <th id="mb_list_id" scope="col"><?php echo subject_sort_link('mb_id') ?>아이디</a></th>
 <th id="mb_list_id" scope="col"><?php echo subject_sort_link('mb_name') ?>이름</a></th>
+<th scope="col" ><?php echo subject_sort_link('mb_trade_amtlmt') ?>설정금액</a></th>
 <th scope="col" ><?php echo subject_sort_link('ct_buy_price') ?>보유금</a></th>
         <th scope="col" ><?php echo subject_sort_link('mb_email') ?>이메일</a></th>
        
@@ -298,6 +299,7 @@ if($sub_menu == "200130"){ ?>
             }
             ?></td>
 <td  ><?php echo $row[mb_name] ?></td>
+<td  ><?=number_format($row['mb_trade_amtlmt'])?></td>
 <td  ><?=number_format($row['ct_buy_price'])?>
 </td>
       <td  ><?= $s_mod_href ?><?=$row['mb_email']?></a></td>
@@ -489,6 +491,11 @@ if($sub_menu == "200130"){ ?>
       <td headers="mb_list_mng" class="td_mng td_mng_s"><?php echo $s_mod ?><?php echo $s_grp ?></td>
     </tr>
     <?php
+	
+	
+	//서브 계정 없으면 추가
+	//$subadd=set_basic_account($row);
+	
     }
     if ($i == 0)
         echo "<tr><td colspan=\"".$colspan."\" class=\"empty_table\">자료가 없습니다.</td></tr>";
@@ -720,12 +727,12 @@ if($sub_menu == "200130"){ ?>
 
 <div class="btn_fixed_top">
 	<span class="nowrap">
-$<input name="tot_amt" type="text" class="frm_input commma-input" id="tot_amt" placeholder="최소보유금제한" value="" size="15">
+<!--$<input name="tot_amt" type="text" class="frm_input commma-input" id="tot_amt" placeholder="최소보유금제한" value="" size="15">
 
 설정금액$
 <input name="amt_lmt" type="text" class="frm_input commma-input" id="amt_lmt" placeholder="최소설정금액강제조정" value="<?=$cset[min_sp_num]?>" size="10">으로 조정</span>
 <input type="submit" name="act_button" value="VIP선정" onclick="document.pressed=this.value" class="btn btn_01"> |
-<input type="submit" name="act_button" value="VIP해제" onclick="document.pressed=this.value" class="btn btn_02">
+<input type="submit" name="act_button" value="VIP해제" onclick="document.pressed=this.value" class="btn btn_02"-->
 |
 
 <input type="submit" name="act_button" value="선택수정" onclick="document.pressed=this.value" class="btn btn_02">

@@ -50,7 +50,7 @@ if (defined('_INDEX_')) { // index에서만 실행
             <div class="userInfo">
                 <img src="<?=G5_THEME_URL?>/images/userBg.svg">
                 <span><img src="<?=G5_THEME_URL?>/images/user.svg" alt="USER07" class="userImg"/></span>
-                <span class="userName" onclick="document.location.href='/for_common/myPage.php'"><span><?=$member[mb_id]?>  <?=lng('님')?></span></span>
+                <span class="userName" onclick="document.location.href='/for_common/myPage.php'"><span><?=$member[mb_id]?> </span></span>
             </div>  
         </div>
         <div class="secList secList03 mainList">
@@ -74,7 +74,7 @@ if (defined('_INDEX_')) { // index에서만 실행
         <div class="sec secList">
             <h3><?=lng('구매')?></h3>
             <ul>
-                <!--li onclick="document.location.href='/for_common/buySell.php?stats_stx=1-1'" ><span><?=$buyer_stats[cnt_stats_1]>99?'+99':($buyer_stats[cnt_stats_1]?$buyer_stats[cnt_stats_1]:0)?><?=lng('건')?></span><?=lng('미처리')?></li-->
+                <li onclick="document.location.href='/for_common/buySell.php?stats_stx=1-1'" ><span><?=$buyer_stats[cnt_stats_1]>99?'+99':($buyer_stats[cnt_stats_1]?$buyer_stats[cnt_stats_1]:0)?><?=lng('건')?></span><?=lng('미처리')?></li>
                 <!--li onclick="document.location.href='/for_common/buySell.php?stats_stx=1-2'" ><span><?=$buyer_stats[cnt_stats_2]>99?'+99':($buyer_stats[cnt_stats_2]?$buyer_stats[cnt_stats_2]:0)?><?=lng('건')?></span><?=lng('완료대기')?></li-->
                 <!--li onclick="document.location.href='/for_common/buySell.php?stats_stx=1-bad'" ><span><?=$buyer_stats[cnt_stats_claim]>99?'+99':($buyer_stats[cnt_stats_claim]?$buyer_stats[cnt_stats_claim]:0)?><?=lng('건')?></span><?=lng('신고')?></li-->
                 <li onclick="document.location.href='/for_common/buySell.php?stats_stx=1-3'" class="f_black"><span><?=$buyer_stats[cnt_stats_3]>99?'+99':($buyer_stats[cnt_stats_3]?$buyer_stats[cnt_stats_3]:0)?><?=lng('건')?></span><?=lng('완료')?></li>
@@ -83,7 +83,7 @@ if (defined('_INDEX_')) { // index에서만 실행
         <div class="sec secList">
             <h3><?=lng('판매')?></h3>
             <ul>
-                <!--li onclick="document.location.href='/for_common/buySell.php?stats_stx=2-1'"><span><?=$seller_stats[cnt_stats_1]>99?'+99':($seller_stats[cnt_stats_1]?$seller_stats[cnt_stats_1]:0)?><?=lng('건')?></span><?=lng('미처리')?></li-->
+                <li onclick="document.location.href='/for_common/buySell.php?stats_stx=2-1'"><span><?=$seller_stats[cnt_stats_1]>99?'+99':($seller_stats[cnt_stats_1]?$seller_stats[cnt_stats_1]:0)?><?=lng('건')?></span><?=lng('미처리')?></li>
                 <!--li onclick="document.location.href='/for_common/buySell.php?stats_stx=2-2'"><span><?=$seller_stats[cnt_stats_2]>99?'+99':($seller_stats[cnt_stats_2]?$seller_stats[cnt_stats_2]:0)?><?=lng('건')?></span><?=lng('완료대기')?></li-->
                 <!--li onclick="document.location.href='/for_common/buySell.php?stats_stx=2-bad'" ><span><?=$seller_stats[cnt_stats_claim]>99?'+99':($seller_stats[cnt_stats_claim]?$seller_stats[cnt_stats_claim]:0)?><?=lng('건')?></span><?=lng('신고')?></li-->
                 <li onclick="document.location.href='/for_common/buySell.php?stats_stx=2-3'" class="f_black"><span><?=$seller_stats[cnt_stats_3]>99?'+99':($seller_stats[cnt_stats_3]?$seller_stats[cnt_stats_3]:0)?><?=lng('건')?></span><?=lng('완료')?></li>

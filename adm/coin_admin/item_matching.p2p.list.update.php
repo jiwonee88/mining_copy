@@ -54,9 +54,7 @@ if ($mb_stx) {
 	$qstr.="&mb_stx=$mb_stx";
 }
 
-//print_r($_POST);
-
-if ($_POST['act_button'] == "실거래적용") {
+if ($_POST['act_button'] == "매칭결과승인처리") {
 
     auth_check($auth[$sub_menu], 'w'); 		
 	
@@ -73,14 +71,24 @@ if ($_POST['act_button'] == "실거래적용") {
 		$result=sql_query("INSERT INTO  {$g5['cn_item_trade']} ($cols)  SELECT $cols from  {$g5['cn_item_trade_test']} where tr_code='$data[tr_code]' ",1);	
 	
 		if(!$result)  alert("작업을 진행 할 수 없습니다");
-
+		
+		$tr_fee_dept=$tr_seller_fee_dept=0;
+		
 		if($data[tr_seller_fee] > 0 ){
-
+			
+			$rpoint=get_mempoint($data[fmb_id]);
+			
+			//부족분
+			$tr_seller_fee_dept=$data['tr_seller_fee']-$rpoint[$g5['cn_fee_coin']]['_enable'];		
+			
+			if($tr_seller_fee_dept > 0) $tr_seller_fee=$data['tr_seller_fee']-$tr_seller_fee_dept;
+			else  $tr_seller_fee=$data[tr_seller_fee];
+		
 			//판매자 수수료 지출
-			$content['link_no']=$data[tr_code];				
+			$content['link_no']=$data['tr_code'];				
 			$content['pt_wallet']='free'; //지갑구
-			$content['pt_coin']=$g5[cn_fee_coin]; //코인구분
-			$content['amount']=$data[tr_seller_fee]  * -1;
+			$content['pt_coin']=$g5['cn_fee_coin']; //코인구분
+			$content['amount']=$tr_seller_fee  * -1;
 			$content['subject']='매칭수수료';
 
 			$mb[mb_id]=$data[fmb_id];
@@ -88,12 +96,22 @@ if ($_POST['act_button'] == "실거래적용") {
 
 		}
 
+		
 		if($data[tr_fee] > 0 ){
+		
+			$rpoint=get_mempoint($data[mb_id]);		
+			
+			//부족분
+			$tr_fee_dept=$data[tr_fee]-$rpoint[$g5['cn_fee_coin']]['_enable'];
+		
+			if($tr_fee_dept > 0) $tr_fee=$data[tr_fee]-$tr_fee_dept;
+			else  $tr_fee=$data[tr_fee];
+		
 			//구매자 수수료 지출
 			$content['link_no']=$data[tr_code];					
 			$content['pt_wallet']='free'; //지갑구
 			$content['pt_coin']=$g5[cn_fee_coin]; //코인구분
-			$content['amount']=$data[tr_fee]  * -1;
+			$content['amount']=$tr_fee  * -1;
 			$content['subject']='매칭수수료';
 
 			$mb[mb_id]=$data[mb_id];
@@ -101,14 +119,30 @@ if ($_POST['act_button'] == "실거래적용") {
 			
 		}
 
-		$sql="update {$g5['cn_item_cart']} set  trade_cnt=trade_cnt+1 ,is_trade=if( trade_cnt >= div_cnt,1,if(trade_cnt > 0,2,is_trade))   where code='{$data[cart_code]}'" ;
-		
+		$sql="update {$g5['cn_item_cart']} set  trade_cnt=trade_cnt+1 ,is_trade=if( trade_cnt >= div_cnt,1,if(trade_cnt > 0,2,is_trade))   where code='{$data[cart_code]}'" ;		
 		$_result=sql_query($sql,1);	
 		
+		//부족분 저장
+		if($tr_fee_dept > 0 || $tr_seller_fee_dept > 0){
+			$set='';
+			
+			if($tr_fee_dept > 0) $set=" tr_fee_dept='$tr_fee_dept' ";
+			if($tr_seller_fee_dept > 0) $set.=($set?",":"")." tr_seller_fee_dept='$tr_seller_fee_dept' ";
+			
+			$sql="update {$g5['cn_item_trade']} set $set  where tr_code='{$data[tr_code]}'" ;		
+			
+			echo $sql;
+			$_result=sql_query($sql,1);	
+		}
+		
+		
+		//바로 승인 처리
+		// set_trade_stat($data,3,1);
+		 
 		if(!$_result)  alert_json(false,"작업을 진행 할 수 없습니다");		
 				
 
-	}//if($_POST['w']=='x'){
+	} 	//while($data=sql_fetch_array($re)){		
 	
 	
 
@@ -132,5 +166,5 @@ if ($_POST['act_button'] == "실거래적용") {
 
 }
 
-goto_url('./item_trade_list.php?'.$qstr);
+//goto_url('./item_trade_list.php?'.$qstr);
 ?>

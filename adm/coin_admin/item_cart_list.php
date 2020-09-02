@@ -5,7 +5,7 @@ include_once('./_common.php');
 auth_check($auth[$sub_menu], 'r');
 
 $sql_common = " from {$g5['cn_item_cart']} a left outer join  {$g5['member_table']} as b on(a.mb_id=b.mb_id) ";
-$sql_search = " where a.is_soled!='1' and b.mb_14!='vip'   ";
+$sql_search = " where a.is_soled!='1' ";
 
 if($date_start_stx) {
 	$sql_search .= " and a.ct_wdate >= '$date_start_stx 00:00:00' ";
@@ -186,17 +186,15 @@ foreach($g5['cn_item'] as $k=>$v){?>
     ?>
 	
 <tr class="<?php echo $bg; ?>">
-<td class="td_chk">
+<td rowspan="2" class="td_chk">
 	<label for="chk_<?php echo $i; ?>" class="sound_only">선택</label>
 	<input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>" <?=$disabled?> >
 	<input type="hidden" name="code[<?php echo $i ?>]" value="<?php echo $row['code'] ?>">
 </td>
-<td  class="td_num">
+<td rowspan="2"  class="td_num">
 <?=$list_num?>
 </td>
-<td ><?php echo $row['code'] ?>
-<?=$row['ct_logs']!=''?"<p class='fred'>{$row['ct_logs']}</p>":''?>
-</td>
+<td ><?php echo $row['code'] ?></td>
 <td class='mb-info-open' data-id='<?php echo $row['mb_id'] ?>'><?php echo $row['smb_id']?$row['smb_id'].' @ ':'' ?><?php echo $row['mb_id'] ?> </td>
 <td ><?php echo $g5['cn_item'][$row['cn_item']][name_kr] ?></td>
 <td class="td_datetime"><?php echo $row['fsmb_id']&& $row['fsmb_id']!=$row['fmb_id']?$row['fsmb_id'].' @ ':'' ?> <?php echo $row['fmb_id']?> </td>
@@ -211,6 +209,11 @@ foreach($g5['cn_item'] as $k=>$v){?>
 <td class="td_right"><?php echo $g5['cn_cartstat'][$row['is_trade']]?></td>
 <td class="td_right"><?php echo $row['trade_cnt']?>/<?php echo $row['div_cnt']?></td>
     </tr>
+<tr class="<?php echo $bg; ?>">
+<td colspan="14" class='td_left'><?=$row['ct_logs']!=''?"<span class='fred'>{$row['ct_logs']}</span>":''?>
+ / 최초소유: <?=$row[ct_meta_owner]?> /생성: <?=$row[ct_meta_sdate]?> /초기가: <?=$row[ct_meta_price]?> /사유: <?=$row[ct_meta_memo]?>
+</td>
+</tr>
     <?php
 	$list_num--;
     }

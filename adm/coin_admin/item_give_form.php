@@ -11,6 +11,14 @@ $g5['title'] = $html_title;
 include_once(G5_ADMIN_PATH.'/admin.head.php');
 include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 
+/*
+sql_query(" ALTER TABLE `{$g5['cn_item_cart']}`
+				ADD `ct_meta_owner` VARCHAR(30) NOT NULL DEFAULT '' AFTER `ct_logs`,
+				ADD `ct_meta_sdate` datetime AFTER `ct_meta_owner`,
+				ADD `ct_meta_price` int(10) NOT NULL  AFTER `ct_meta_sdate`,
+				ADD `ct_meta_memo` varchar(255) NOT NULL  AFTER `ct_meta_price`				
+				", true);
+*/
 ?>
 <form name="fcommonform" id="fcommonform" action="./item_give_update.php" onsubmit="return fcommonform_submit(this)" method="post" enctype="multipart/form-data">
 <input type="hidden" name="w" value="u">
@@ -79,6 +87,10 @@ for($i=1;$i <= 50;$i++) {
 <tr>
 <th scope="row">총지급금액</th>
 <td>$<strong><span id='tot_price'>0</span></strong></td>
+</tr>
+<tr>
+<th height="21" scope="row"> 지급사유</th>
+<td><input name="ct_meta_memo" type="text"  class="frm_input" id="ct_meta_memo" size="70" /></td>
 </tr>
 <!--tr>
 <th scope="row">수수료</th>
