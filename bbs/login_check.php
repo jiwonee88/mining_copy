@@ -31,9 +31,9 @@ if (function_exists('social_is_login_check')) {
 // 가입된 회원이 아니다. 비밀번호가 틀리다. 라는 메세지를 따로 보여주지 않는 이유는
 // 회원아이디를 입력해 보고 맞으면 또 비밀번호를 입력해보는 경우를 방지하기 위해서입니다.
 // 불법사용자의 경우 회원아이디가 틀린지, 비밀번호가 틀린지를 알기까지는 많은 시간이 소요되기 때문입니다.
-//if (!$is_social_password_check && (!$mb['mb_id'] || !check_password($mb_password, $mb['mb_password'])) ) {
- //   alert_json(false,"Not a registered ID or wrong password. Passwords are case sensitive.");
-//}
+if (!$is_social_password_check && (!$mb['mb_id'] || !check_password($mb_password, $mb['mb_password']))) {
+    alert_json(false, "Not a registered ID or wrong password. Passwords are case sensitive.");
+}
 
 // 차단된 아이디인가?
 if ($mb['mb_intercept_date'] && $mb['mb_intercept_date'] <= date("Ymd", G5_SERVER_TIME)) {
