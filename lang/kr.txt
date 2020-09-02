@@ -365,3 +365,8 @@ Gold Transfer
 Current User
 GOLD(Buy Gold)
 선택
+Shop
+최소전송금액
+계정을 추가하시겠습니까?
+추가되었습니다
+cancel
