@@ -225,7 +225,10 @@ function fcommonform1_ajax(f)
 <?=help('지불할 수수료가 부족한 매수자는 지불 가능 수수료 한도내에서만 매칭에 참여 됩니다. 금액이 큰 '.$g5['cn_item_name'].' 매칭부터 우선 사용됩니다')?>
 <label>
 <input name="fee_free" type="radio"  value="pay" checked="checked"  >
-<?=$g5['cn_item_name']?>별 지정 수수료 부과</label>
+<?=$g5['cn_item_name']?>별 지정 수수료 부과</label> 
+(
+<input name="ignore_fee" type="checkbox" id="item_exe_<?=$k?>" value="1" checked >
+잔액 부족 회원도 매칭)
 &nbsp;&nbsp;&nbsp;
 
 <label>
@@ -247,6 +250,23 @@ function fcommonform1_ajax(f)
 <input name="active_chk" type="radio"  value="n"  >
 활성화 여부 관계 없이 매칭</label>
 </td>
+</tr>
+<tr>
+<th scope="row"><label for="in_set_amt2">설정금액별 <br>
+우선 매수</label></th>
+<td>
+<?
+for($i=1;$i<=4;$i++){?>
+<p style='margin:3px 0px;'>설정금액
+<input name="amt_lmt_start<?=$i?>" type="text"  class="frm_input number-comma " id="amt_lmt_start<?=$i?>1" value="0" size="10"/>
+~
+<input name="amt_lmt_end<?=$i?>" type="text"  class="frm_input number-comma " id="amt_lmt_end<?=$i?>" value="0" size="10"/> 
+매수자는 매수물량
+$
+<input name="amt_lmt_max<?=$i?>" type="text"  class="frm_input number-comma" id="amt_lmt_max<?=$i?>" value="0" size="10"/>
+만큼 우선매칭
+</p>
+<? }?></td>
 </tr>
 <tr>
 <th scope="row">보유회원제외</th>

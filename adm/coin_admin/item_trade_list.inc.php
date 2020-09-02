@@ -1,5 +1,16 @@
 <?php
 
+/*
+sql_query(" ALTER TABLE `{$g5['cn_item_trade']}`
+				ADD `tr_fee_dept` float(10,2) NOT NULL AFTER `tr_seller_fee`,
+				ADD `tr_seller_fee_dept` float(10,2) NOT NULL AFTER `tr_fee_dept`			
+				", true);
+sql_query(" ALTER TABLE `{$g5['cn_item_trade_test']}`
+				ADD `tr_fee_dept` float(10,2) NOT NULL AFTER `tr_seller_fee`,
+				ADD `tr_seller_fee_dept` float(10,2) NOT NULL AFTER `tr_fee_dept`			
+				", true);
+*/			
+				
 $sql_common = " from {$g5['cn_item_trade']} as a 
 left outer join  {$g5['cn_item_cart']} as c on(a.cart_code=c.code) 
 left outer join  {$g5['member_table']} as b on(a.mb_id=b.mb_id) ";
@@ -9,8 +20,8 @@ $sql_search = " where (1) ";
 //if($sub_menu == "700600") $sql_search .= " and (b.mb_14!='vip' or  a.tr_active!='1') ";		//일반
 //else if($sub_menu == "700605")	$sql_search .= " and b.mb_14='vip' and c.tr_active='1'  ";						//vip
 
-if($sub_menu == "700600") $sql_search .= " and  a.tr_active!='1' ";		//일반
-else if($sub_menu == "700605")	$sql_search .= " and  a.tr_active='1'  ";						//vip
+//if($sub_menu == "700600") $sql_search .= " and  a.tr_active!='1' ";		//일반
+//else if($sub_menu == "700605")	$sql_search .= " and  a.tr_active='1'  ";						//vip
 
 
 if($date_start_stx) {
@@ -389,8 +400,11 @@ foreach($g5['tr_stat'] as $k=>$v) echo "<option value='{$k}' >{$v}</option>";
 <a href='./item_cart_list.php?code_stx=<?=$row[cart_code]?>' target='_blank'><?=$row[cart_code]?></a>
 <?=$row[to_cart_code]?' &gt; 지급'.$g5[cn_item_name].": <a href='./item_cart_list.php?code_stx={$row[to_cart_code]}' target='_blank'>". $row[to_cart_code]."</a>":''?>
 <?
-echo " / 구매수수료:<span class='fblue'>".$row[tr_fee]."</span>";
-echo " / 판매수수료:<span class='fblue'>".$row[tr_seller_fee]."</span>";
+echo " / 구매수수료: <span class='fblue'>".$row[tr_fee]."</span>";
+echo " / 판매수수료: <span class='fblue'>".$row[tr_seller_fee]."</span>";
+echo " / 구매수수료부족분: <span class='fblue'>".$row[tr_fee_dept]."</span>";
+echo " / 판매수수료부족분: <span class='fblue'>".$row[tr_seller_fee_dept]."</span>";
+
 ?>
 <?
 if($row[tr_buyer_memo]) echo "<br/>구매자 신고:<span class='fred'>".$row[tr_buyer_memo]."</span>";
@@ -416,7 +430,9 @@ foreach($g5['tr_stat'] as $k=>$v) echo "<option value='{$k}' >{$v}</option>";
 ?>
 </select>
 <input type="submit" name="act_button" value="선택수정" onclick="document.pressed=this.value" class="btn_02 btn">
-    <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value" class="btn_01 btn">
+<input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value" class="btn_01 btn">
+
+<a href="./item_trade_list.excel.php?<?=$qstr?>" class='btn btn_02'>거래내역엑셀출력</a> 
 
 </div>
 

@@ -746,11 +746,17 @@ function get_write_token(bo_table)
 //콤마찍기
 function inputNumberFormat(str) {
 	str = String(str);
+	var minus = str.substring(0, 1);
+	
 	var bExists = str.indexOf(".", 0);//0번째부터 .을 찾는다.
     var strArr = str.split('.');
 	
 	str2=strArr[0].replace(/[^\d]+/g, '');
-	return str2.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,')+(bExists > -1?"."+strArr[1]:"");
+	str2=str2.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,')+(bExists > -1?"."+strArr[1]:"");
+	
+	if(minus == "-") str2 = "-"+str2;
+	
+	return str2;
 }
 
 

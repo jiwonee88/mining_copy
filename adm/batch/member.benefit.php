@@ -1,6 +1,7 @@
 <?php
 include_once('./_common.php');
 
+exit;
 
 //회원 포인트 배치
 if($is_admin!='super') die('권한 없음');

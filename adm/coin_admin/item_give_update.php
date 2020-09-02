@@ -70,7 +70,12 @@ if ($w == 'u') {
 			
 			ct_manual='1',
 			ct_logs='$ct_logs_val',
-			
+						
+			ct_meta_owner='$mb_id',
+			ct_meta_price='$org_price_val',
+			ct_meta_sdate=now(),
+			ct_meta_memo='$ct_meta_memo',
+						
 			ct_rdate=now()
 						
 			";

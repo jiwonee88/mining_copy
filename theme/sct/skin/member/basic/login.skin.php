@@ -89,13 +89,26 @@ function flogin_submit(f)
 				return;
 				
 			}
-			else Swal.fire({title:"",html:data.message,icon: 'warning'
-			,
-			  onClose: () => {
-				if(data.datas['goto_url']) document.location.href=data.datas['goto_url'];
-			  }
-			 });
-			
+			else{
+				
+				Swal.fire({
+				  title: '',
+				  html:data.message,
+				  icon: 'warning',
+				  //showCancelButton: true,
+				  //confirmButtonColor: '#3085d6',
+				  //cancelButtonColor: '#d33',
+				  confirmButtonText: '확인'
+				}).then(function(result){
+				  if (result.value) {
+					
+					if(data.datas['goto_url']) document.location.href=data.datas['goto_url'];
+					
+				  }
+				})
+
+			 
+			}
 		}
 	});		
 

@@ -1,14 +1,15 @@
 <?php
-$sub_menu = "200100";
+$sub_menu = "700210";
 
 include_once('./_common.php');
 
-$g5['title'] .= '회원 설정 엑셀 반영';
+$g5['title'] .= '회원 가용금액 등록';
 include_once('./admin.head.php');
     
 ?>
 
 <form name="fmember" id="fmember" action="./member_excel_config_update.php" onsubmit="return fmember_submit(this);" method="post" enctype="multipart/form-data">
+<input type='hidden' name='w' value='u'>
 <div class="tbl_frm01 tbl_wrap">
     <table>
         <tr>
@@ -26,28 +27,7 @@ include_once('./admin.head.php');
 
 $(function(){
 
-	//추천인 변경
-	$(".change-recommend").on("click", function(e){
-		$("input[name='w']").val('p');			
-		
-		 var f = document.fmember;
-        var token = get_ajax_token();
-
-        if(!token) {
-            alert("토큰 정보가 올바르지 않습니다.");
-            return false;
-        }
-
-        var $f = $(f);
-
-        if(typeof f.token === "undefined")
-            $f.prepend('<input type="hidden" name="token" value="">');
-
-        $f.find("input[name=token]").val(token);
-
-		$f.submit();
-		return ;
-	});
+	
 })
 function fmember_submit(f)
 {	

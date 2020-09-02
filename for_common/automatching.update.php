@@ -1,4 +1,4 @@
-........<?php
+<?php
 include_once('./_common.php');
 
 if($member[mb_trade_penalty] > 0 ) alert_json(false,"해당 계정은 거래 매칭 미참여로 인해 동결 처리되었습니다");

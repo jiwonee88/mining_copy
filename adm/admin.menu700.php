@@ -3,9 +3,14 @@ $menu['menu700'] = array(
     array('700000', '입출금',  ''.G5_CN_ADMIN_URL.'/insert_purchase_list.php', 'purchase_list'),
     array('700100', '포인트구매내역', ''.G5_CN_ADMIN_URL.'/insert_purchase_list.php', 'purchase_list'),
     array('700200', '직접입금처리', ''.G5_CN_ADMIN_URL.'/insert_reserve_list.php', 'insert_list'),
+	array('700210', '회원가용금액등록', ''.G5_ADMIN_URL.'/member_excel_config_form.php', 'insert_list'),
     array('700250',  ($g5['cn_item_name']).'직접지급', ''.G5_CN_ADMIN_URL.'/item_give_form.php', 'item_give'),
     
     array('700500', ($g5['cn_item_name']).'-보유목록', ''.G5_CN_ADMIN_URL.'/item_cart_list.php', 'item_cart'),
+	
+	array('700560', ($g5['cn_item_name']).'-생성내역', ''.G5_CN_ADMIN_URL.'/item_create_list.php', 'item_cart'),
+	
+	array('700570', ($g5['cn_item_name']).'-보유현황', ''.G5_CN_ADMIN_URL.'/item_cart_user_stat.php', 'item_cart'),
     
     array('700550', '구매대기', ''.G5_CN_ADMIN_URL.'/item_buyer_list.php', 'item_buy'),
     
@@ -17,8 +22,7 @@ $menu['menu700'] = array(
         
     array('700755', '매칭-프리뷰', ''.G5_CN_ADMIN_URL.'/item_matching.p2p.list.php', 'matching'),
     
-    array('700765', '매칭현황-프리뷰', ''.G5_CN_ADMIN_URL.'/item_matching_user_stat.prev.php', 'matching'),
-    
+    array('700765', '매칭현황-프리뷰', ''.G5_CN_ADMIN_URL.'/item_matching_user_stat.prev.php', 'matching'),    
     
     array('700700','매칭(회사)', ''.G5_CN_ADMIN_URL.'/item_matching.php', 'matching'),
     array('700750','매칭(p2p)', ''.G5_CN_ADMIN_URL.'/item_matching.p2p.php', 'matching'),

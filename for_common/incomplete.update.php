@@ -3,9 +3,7 @@ include_once('./_common.php');
 
 //alert_json(false,'점검중입니다');	
 //error_reporting(E_ALL);
-
-//ini_set("display_errors", 1);
-
+ini_set("display_errors", 0);
 
 service_block();
 
@@ -27,6 +25,13 @@ if ( $_POST['w'] == 'txin') {
 	
 	if($tdata[tr_stats]=='3' ) alert_json(false,"이미 완료된 거래입니다");
 	if($tdata[tr_stats]=='9' ) alert_json(false,"이미 취소된 거래입니다");
+	
+	$result=set_trade_stat($tdata,3);	
+	
+	if($result[0]==false) alert_json(false,$result[1]);	
+	else alert_json(true,'처리되었습니다',array('stats'=>lng('거래완료'),'setdate'=>date("Y-m-d H:i:s")));	
+	
+	/*
 	if($tdata[tr_paytype]=='cash' && $tr_deposit=='' ) alert_json(false,'입금자명을 입력하세요');	
 	
 	if($tdata[tr_paytype]=='both' && $tr_txid==''  && $tr_deposit=='' ) alert_json(false,'테더 입금시 Transaction hash 을, 계좌이체시 입금자명을 입력하세요');	
@@ -45,6 +50,9 @@ if ( $_POST['w'] == 'txin') {
 	
 	if($result) alert_json(true,'');	
 	else alert_json(false,'처리할수 없습니다');	
+	
+	*/
+	
 }
 
 //신고 진행

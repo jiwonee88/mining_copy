@@ -3,6 +3,10 @@ include_once('./_common.php');
 add_javascript('<script src="'.G5_THEME_URL.'/extend/clipboard.min.js"></script>', 1);
 
 include_once('../_head.php');
+
+//서브 계정 없으면 추가
+$subadd=set_basic_account($member);
+
 ?>
     <div class="wrap">       
         <div class="topCommon">   

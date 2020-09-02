@@ -23,7 +23,7 @@ $last_date=date("Y-m-d");
 $buyer_stats=sql_fetch("select 
 sum(if(tr_stats='1',1,0)) cnt_stats_1,
 sum(if(tr_stats='2',1,0)) cnt_stats_2,
-sum(if(tr_wdate>='$last_date' and tr_stats='3',1,0)) cnt_stats_3,
+sum(if( tr_stats='3',1,0)) cnt_stats_3,
 sum(if(tr_stats='9',1,0)) cnt_stats_9,
 sum(if(	tr_buyer_claim='1' and tr_stats!='3' and tr_stats!='9',1,0)) buyer_claim,
 sum(if(	tr_seller_claim='1'  and tr_stats!='3' and tr_stats!='9',1,0)) seller_claim,
@@ -34,7 +34,7 @@ from {$g5['cn_item_trade']} where mb_id='$member[mb_id]'",1);
 $seller_stats=sql_fetch("select 
 sum(if(tr_stats='1',1,0)) cnt_stats_1,
 sum(if(tr_stats='2',1,0)) cnt_stats_2,
-sum(if(tr_wdate>='$last_date' and tr_stats='3',1,0)) cnt_stats_3,
+sum(if( tr_stats='3',1,0)) cnt_stats_3,
 sum(if(tr_stats='9',1,0)) cnt_stats_9,
 sum(if(	tr_buyer_claim='1' and tr_stats!='3' and tr_stats!='9',1,0)) buyer_claim,
 sum(if(	tr_seller_claim='1' and tr_stats!='3'  and tr_stats!='9',1,0)) seller_claim,

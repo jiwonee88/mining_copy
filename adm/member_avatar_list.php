@@ -11,7 +11,7 @@ left outer join  (select mb_id,count(*) ct_cnt,sum(ct_buy_price) ct_buy_price  f
 left outer join  (select mb_id,count(*) tr_cnt,sum(tr_price_org) tr_price_org  from {$g5['cn_item_trade']} where  tr_stats in ('1','2')  group by mb_id)  as t on(t.mb_id=b.mb_id) 	
 		";
 
-$sql_search = " where (1) ";
+$sql_search = " where a.ac_id=a.mb_id ";
 
 
 if ($stx) {
@@ -72,7 +72,7 @@ $g5['title'] = '계정관리';
 include_once('./admin.head.php');
 include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 
-$sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
+$sql = " select *,a.mb_id amb_id {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
 $result = sql_query($sql);
 
 $colspan = 14 + sizeof($g5['cn_item'])+sizeof($g5['cn_cointype']);
@@ -175,7 +175,7 @@ $colspan = 14 + sizeof($g5['cn_item'])+sizeof($g5['cn_cointype']);
 <td  ><?php echo $row[ac_id] ?></td>
 	
 	<td  >
-    <?php echo $row[mb_id] ?></td>
+    <?php echo $row[amb_id] ?></td>
 <td><?=number_format2($row['mb_trade_amtlmt'])?></td>
 <td><?=number_format2($row['ct_buy_price'])?></td>
 <td><?=number_format2($row['mtr_price_org'])?></td>
@@ -207,6 +207,8 @@ $colspan = 14 + sizeof($g5['cn_item'])+sizeof($g5['cn_cointype']);
 <td class="td_datetime"><?php echo $row['ac_wdate']; ?></td>
     </tr>
     <?php
+	
+
     }
     if ($i == 0)
         echo "<tr><td colspan=\"".$colspan."\" class=\"empty_table\">자료가 없습니다.</td></tr>";
